@@ -1,0 +1,5 @@
+# Extra packages installed on top of the digest-pinned NGC PyTorch image.
+transformers==5.6.0
+huggingface-hub==1.5.0
+speculators==0.5.0
+accelerate==1.14.0

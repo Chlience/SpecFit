@@ -1,0 +1,122 @@
+{
+ "gsm8k": {
+  "cycles": 4407,
+  "family_size": {
+   "min": 4,
+   "median": 251,
+   "max": 316
+  },
+  "reproduces_recorded": 4407,
+  "stop_replay_consistent": 4407,
+  "T1": {
+   "theta_ratio": 10.089128582516423,
+   "lam_star": 10.185894931416493,
+   "gap_pct": 0.9500034071784125,
+   "bound_pct": 1.7479360139624311,
+   "negative_terms": 0,
+   "differ_pct": 24.48377581120944,
+   "realized_ratio": 10.075778137220945,
+   "realized_lam": 10.145227410628818,
+   "realized_diff_pct": 0.6892695776152591,
+   "rho_cv": 0.25191689962757785,
+   "dinkelbach_iters": 2,
+   "low_rho_pct": 52.46199228500114,
+   "low_rho_shorter_time_pct": 39.14359861591695,
+   "high_rho_longer_time_pct": 8.305489260143197
+  },
+  "T3a": {
+   "violations": 0,
+   "grid": [
+    0.25,
+    0.5,
+    1,
+    1.5,
+    2,
+    3,
+    4,
+    6
+   ],
+   "beta1": {
+    "F_per_R": 305.6709003952058,
+    "nodes": 5.085091899251191
+   },
+   "beta2": {
+    "F_per_R": 298.01414974141886,
+    "nodes": 4.536646244610846
+   }
+  },
+  "T4": {
+   "drafted_levels_mean": 4.387792148854095,
+   "drafted_levels_hist": {
+    "1": 65,
+    "2": 260,
+    "3": 490,
+    "4": 678,
+    "5": 2914
+   },
+   "below_5_pct": 33.877921488540956,
+   "rule_stop_before_5_pct": 33.741774449739054,
+   "limit_cycles": 6
+  }
+ },
+ "summarization": {
+  "cycles": 4389,
+  "family_size": {
+   "min": 4,
+   "median": 99,
+   "max": 316
+  },
+  "reproduces_recorded": 4389,
+  "stop_replay_consistent": 4389,
+  "T1": {
+   "theta_ratio": 7.097236095384501,
+   "lam_star": 7.150357553835713,
+   "gap_pct": 0.7429203092468528,
+   "bound_pct": 1.3839080218265165,
+   "negative_terms": 0,
+   "differ_pct": 26.6347687400319,
+   "realized_ratio": 7.147147630063374,
+   "realized_lam": 7.18498043118822,
+   "realized_diff_pct": 0.5293412572829448,
+   "rho_cv": 0.31482603746955923,
+   "dinkelbach_iters": 2,
+   "low_rho_pct": 63.20346320346321,
+   "low_rho_shorter_time_pct": 30.20908435472242,
+   "high_rho_longer_time_pct": 20.4953560371517
+  },
+  "T3a": {
+   "violations": 0,
+   "grid": [
+    0.25,
+    0.5,
+    1,
+    1.5,
+    2,
+    3,
+    4,
+    6
+   ],
+   "beta1": {
+    "F_per_R": 365.5484208715363,
+    "nodes": 2.884939621781727
+   },
+   "beta2": {
+    "F_per_R": 351.50084492383377,
+    "nodes": 2.3524720893141944
+   }
+  },
+  "T4": {
+   "drafted_levels_mean": 2.8614718614718613,
+   "drafted_levels_hist": {
+    "1": 606,
+    "2": 1315,
+    "3": 1171,
+    "4": 675,
+    "5": 622
+   },
+   "below_5_pct": 85.82820688083847,
+   "rule_stop_before_5_pct": 85.8054226475279,
+   "limit_cycles": 1
+  }
+ }
+}

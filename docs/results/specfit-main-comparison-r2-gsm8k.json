@@ -1,0 +1,1083 @@
+{
+  "status": "complete_gsm8k_subset",
+  "observed_ns": 1790324344453039068,
+  "host": "a100-host",
+  "remote_directory": "/path/to/data/artifacts/specfit-main-comparison/20260924-r2",
+  "dataset": "gsm8k",
+  "question_ids": [
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473,
+    474,
+    475,
+    476,
+    477,
+    478,
+    479,
+    480
+  ],
+  "unique_questions": 80,
+  "measured_requests": 640,
+  "total_token_limit": 512,
+  "source_git_commit": "18a52f6ef1410a237946aee45d3aa90cfb6a032c",
+  "workers": {
+    "0": {
+      "manifest": {
+        "basename": "manifest.json",
+        "size_bytes": 3675,
+        "sha256": "dc330dca977e3f3b41f481580c8750f43c4acf4f9270fae929300851526d2dfa"
+      },
+      "sealed_dataset": {
+        "basename": "gsm8k-complete.json",
+        "size_bytes": 82259,
+        "sha256": "e093ac3eac8027cbdc50f1c5f5abe15e25d00781160baec26643d019e1db1e28"
+      },
+      "gpu_uuid": "GPU-00000000-0000-0000-0000-000000000001",
+      "method_order": [
+        "ar",
+        "eagle_no_cache",
+        "eagle_cache",
+        "specfit"
+      ],
+      "metrics": {
+        "ar": {
+          "requests": 80,
+          "output_tokens": 17871,
+          "decode_tokens": 17791,
+          "request_ns": 2872091560890,
+          "decode_ns": 2723855156685,
+          "decode_tps": 6.531551413934981,
+          "request_tps": 6.222294666142941,
+          "numeric_correct": 62,
+          "unparsed": 15,
+          "truncated": 7,
+          "decode_speedup_vs_ar": 1.0,
+          "decode_speedup_vs_cached_eagle": 0.6478241024493357,
+          "request_speedup_vs_cached_eagle": 0.6670202678153441,
+          "cache_delta": {
+            "h2d_submissions": 1367565,
+            "resident_hits": 5749292,
+            "inflight_joins": 0,
+            "evictions": 1365261
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 17791,
+            "verification_length_including_root": {
+              "total": 17791,
+              "mean": 1.0,
+              "histogram": {
+                "1": 17791
+              }
+            },
+            "accepted_draft_length": {
+              "total": 0,
+              "mean": 0.0,
+              "histogram": {
+                "0": 17791
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17791,
+              "mean": 1.0,
+              "histogram": {
+                "1": 17791
+              }
+            },
+            "selected_draft_nodes": 0,
+            "accepted_fraction_of_selected_nodes": null
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 0,
+            "raw_candidate_nodes_histogram": {},
+            "raw_candidate_nodes_mean": null,
+            "selected_draft_nodes_mean": null
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 1367565,
+            "per_request": 17094.5625,
+            "per_output_token": 76.52425717643109
+          },
+          "discard_ns": 0
+        },
+        "eagle_no_cache": {
+          "requests": 80,
+          "output_tokens": 17834,
+          "decode_tokens": 17754,
+          "request_ns": 3006926217690,
+          "decode_ns": 2844893265063,
+          "decode_tps": 6.240655921271211,
+          "request_tps": 5.930973595255207,
+          "numeric_correct": 62,
+          "unparsed": 16,
+          "truncated": 6,
+          "decode_speedup_vs_ar": 0.9554630325586738,
+          "decode_speedup_vs_cached_eagle": 0.6189719814908433,
+          "request_speedup_vs_cached_eagle": 0.6357911041145125,
+          "cache_delta": {
+            "h2d_submissions": 6164453,
+            "resident_hits": 0,
+            "inflight_joins": 0,
+            "evictions": 101993
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 4097,
+            "verification_length_including_root": {
+              "total": 32770,
+              "mean": 7.9985355137905785,
+              "histogram": {
+                "3": 1,
+                "7": 1,
+                "8": 4095
+              }
+            },
+            "accepted_draft_length": {
+              "total": 13724,
+              "mean": 3.3497681230168417,
+              "histogram": {
+                "0": 341,
+                "1": 449,
+                "2": 540,
+                "3": 541,
+                "4": 558,
+                "5": 1668
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17821,
+              "mean": 4.349768123016841,
+              "histogram": {
+                "1": 341,
+                "2": 449,
+                "3": 540,
+                "4": 541,
+                "5": 558,
+                "6": 1668
+              }
+            },
+            "selected_draft_nodes": 28673,
+            "accepted_fraction_of_selected_nodes": 0.47863844034457503
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 73698,
+            "raw_candidate_nodes_histogram": {
+              "2": 1,
+              "6": 1,
+              "10": 2,
+              "14": 1,
+              "18": 4092
+            },
+            "raw_candidate_nodes_mean": 17.988284110324628,
+            "selected_draft_nodes_mean": 6.9985355137905785
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 6164453,
+            "per_request": 77055.6625,
+            "per_output_token": 345.65733991252665
+          },
+          "discard_ns": 20553239671
+        },
+        "eagle_cache": {
+          "requests": 80,
+          "output_tokens": 17834,
+          "decode_tokens": 17754,
+          "request_ns": 1911776939936,
+          "decode_ns": 1760909221406,
+          "decode_tps": 10.082291457264501,
+          "request_tps": 9.328494149844188,
+          "numeric_correct": 62,
+          "unparsed": 16,
+          "truncated": 6,
+          "decode_speedup_vs_ar": 1.5436288897235138,
+          "decode_speedup_vs_cached_eagle": 1.0,
+          "request_speedup_vs_cached_eagle": 1.0,
+          "cache_delta": {
+            "h2d_submissions": 1653888,
+            "resident_hits": 4510565,
+            "inflight_joins": 0,
+            "evictions": 1651584
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 4097,
+            "verification_length_including_root": {
+              "total": 32770,
+              "mean": 7.9985355137905785,
+              "histogram": {
+                "3": 1,
+                "7": 1,
+                "8": 4095
+              }
+            },
+            "accepted_draft_length": {
+              "total": 13724,
+              "mean": 3.3497681230168417,
+              "histogram": {
+                "0": 341,
+                "1": 449,
+                "2": 540,
+                "3": 541,
+                "4": 558,
+                "5": 1668
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17821,
+              "mean": 4.349768123016841,
+              "histogram": {
+                "1": 341,
+                "2": 449,
+                "3": 540,
+                "4": 541,
+                "5": 558,
+                "6": 1668
+              }
+            },
+            "selected_draft_nodes": 28673,
+            "accepted_fraction_of_selected_nodes": 0.47863844034457503
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 73698,
+            "raw_candidate_nodes_histogram": {
+              "2": 1,
+              "6": 1,
+              "10": 2,
+              "14": 1,
+              "18": 4092
+            },
+            "raw_candidate_nodes_mean": 17.988284110324628,
+            "selected_draft_nodes_mean": 6.9985355137905785
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 1653888,
+            "per_request": 20673.6,
+            "per_output_token": 92.73791633957609
+          },
+          "discard_ns": 0
+        },
+        "specfit": {
+          "requests": 80,
+          "output_tokens": 17739,
+          "decode_tokens": 17659,
+          "request_ns": 1816578396187,
+          "decode_ns": 1665859519183,
+          "decode_tps": 10.600533716468863,
+          "request_tps": 9.765061633031737,
+          "numeric_correct": 63,
+          "unparsed": 15,
+          "truncated": 7,
+          "decode_speedup_vs_ar": 1.6229733251203935,
+          "decode_speedup_vs_cached_eagle": 1.0514012376453328,
+          "request_speedup_vs_cached_eagle": 1.0467993521971433,
+          "cache_delta": {
+            "h2d_submissions": 1457857,
+            "resident_hits": 3934622,
+            "inflight_joins": 0,
+            "evictions": 1455553
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 4329,
+            "verification_length_including_root": {
+              "total": 27213,
+              "mean": 6.286209286209286,
+              "histogram": {
+                "1": 46,
+                "2": 154,
+                "3": 235,
+                "4": 296,
+                "5": 533,
+                "6": 575,
+                "7": 1065,
+                "8": 1425
+              }
+            },
+            "accepted_draft_length": {
+              "total": 13402,
+              "mean": 3.0958650958650957,
+              "histogram": {
+                "0": 425,
+                "1": 551,
+                "2": 625,
+                "3": 651,
+                "4": 737,
+                "5": 1340
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17731,
+              "mean": 4.095865095865096,
+              "histogram": {
+                "1": 425,
+                "2": 551,
+                "3": 625,
+                "4": 651,
+                "5": 737,
+                "6": 1340
+              }
+            },
+            "selected_draft_nodes": 22884,
+            "accepted_fraction_of_selected_nodes": 0.5856493619996505
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 77850,
+            "raw_candidate_nodes_histogram": {
+              "2": 1,
+              "6": 3,
+              "10": 1,
+              "14": 3,
+              "18": 4321
+            },
+            "raw_candidate_nodes_mean": 17.983367983367984,
+            "selected_draft_nodes_mean": 5.286209286209286
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 1457857,
+            "per_request": 18223.2125,
+            "per_output_token": 82.18371948813349
+          },
+          "discard_ns": 0
+        }
+      }
+    },
+    "1": {
+      "manifest": {
+        "basename": "manifest.json",
+        "size_bytes": 3675,
+        "sha256": "982772e5201dc4950dc4ca635c62d03ed650b25f2fe9d66c0f5c5a9930fae131"
+      },
+      "sealed_dataset": {
+        "basename": "gsm8k-complete.json",
+        "size_bytes": 82259,
+        "sha256": "e3580719276503591a6a1d9425f5046218c5e287a9431735db309752b491e57c"
+      },
+      "gpu_uuid": "GPU-00000000-0000-0000-0000-000000000002",
+      "method_order": [
+        "specfit",
+        "eagle_cache",
+        "eagle_no_cache",
+        "ar"
+      ],
+      "metrics": {
+        "ar": {
+          "requests": 80,
+          "output_tokens": 17871,
+          "decode_tokens": 17791,
+          "request_ns": 2877200263070,
+          "decode_ns": 2728859017618,
+          "decode_tps": 6.519574622630973,
+          "request_tps": 6.211246477828232,
+          "numeric_correct": 62,
+          "unparsed": 15,
+          "truncated": 7,
+          "decode_speedup_vs_ar": 1.0,
+          "decode_speedup_vs_cached_eagle": 0.6502502624744699,
+          "request_speedup_vs_cached_eagle": 0.6693487013080172,
+          "cache_delta": {
+            "h2d_submissions": 1367552,
+            "resident_hits": 5749305,
+            "inflight_joins": 0,
+            "evictions": 1365248
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 17791,
+            "verification_length_including_root": {
+              "total": 17791,
+              "mean": 1.0,
+              "histogram": {
+                "1": 17791
+              }
+            },
+            "accepted_draft_length": {
+              "total": 0,
+              "mean": 0.0,
+              "histogram": {
+                "0": 17791
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17791,
+              "mean": 1.0,
+              "histogram": {
+                "1": 17791
+              }
+            },
+            "selected_draft_nodes": 0,
+            "accepted_fraction_of_selected_nodes": null
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 0,
+            "raw_candidate_nodes_histogram": {},
+            "raw_candidate_nodes_mean": null,
+            "selected_draft_nodes_mean": null
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 1367552,
+            "per_request": 17094.4,
+            "per_output_token": 76.52352974092105
+          },
+          "discard_ns": 0
+        },
+        "eagle_no_cache": {
+          "requests": 80,
+          "output_tokens": 17834,
+          "decode_tokens": 17754,
+          "request_ns": 3002013799336,
+          "decode_ns": 2840309518720,
+          "decode_tps": 6.250727212293726,
+          "request_tps": 5.940678888266473,
+          "numeric_correct": 62,
+          "unparsed": 16,
+          "truncated": 6,
+          "decode_speedup_vs_ar": 0.9587630442323622,
+          "decode_speedup_vs_cached_eagle": 0.6234359211629155,
+          "request_speedup_vs_cached_eagle": 0.6401912583799871,
+          "cache_delta": {
+            "h2d_submissions": 6164453,
+            "resident_hits": 0,
+            "inflight_joins": 0,
+            "evictions": 101993
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 4097,
+            "verification_length_including_root": {
+              "total": 32770,
+              "mean": 7.9985355137905785,
+              "histogram": {
+                "3": 1,
+                "7": 1,
+                "8": 4095
+              }
+            },
+            "accepted_draft_length": {
+              "total": 13724,
+              "mean": 3.3497681230168417,
+              "histogram": {
+                "0": 341,
+                "1": 449,
+                "2": 540,
+                "3": 541,
+                "4": 558,
+                "5": 1668
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17821,
+              "mean": 4.349768123016841,
+              "histogram": {
+                "1": 341,
+                "2": 449,
+                "3": 540,
+                "4": 541,
+                "5": 558,
+                "6": 1668
+              }
+            },
+            "selected_draft_nodes": 28673,
+            "accepted_fraction_of_selected_nodes": 0.47863844034457503
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 73698,
+            "raw_candidate_nodes_histogram": {
+              "2": 1,
+              "6": 1,
+              "10": 2,
+              "14": 1,
+              "18": 4092
+            },
+            "raw_candidate_nodes_mean": 17.988284110324628,
+            "selected_draft_nodes_mean": 6.9985355137905785
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 6164453,
+            "per_request": 77055.6625,
+            "per_output_token": 345.65733991252665
+          },
+          "discard_ns": 18936863729
+        },
+        "eagle_cache": {
+          "requests": 80,
+          "output_tokens": 17834,
+          "decode_tokens": 17754,
+          "request_ns": 1921862991871,
+          "decode_ns": 1770750981191,
+          "decode_tps": 10.026254503644962,
+          "request_tps": 9.27953765457442,
+          "numeric_correct": 62,
+          "unparsed": 16,
+          "truncated": 6,
+          "decode_speedup_vs_ar": 1.5378694292172805,
+          "decode_speedup_vs_cached_eagle": 1.0,
+          "request_speedup_vs_cached_eagle": 1.0,
+          "cache_delta": {
+            "h2d_submissions": 1653863,
+            "resident_hits": 4510590,
+            "inflight_joins": 0,
+            "evictions": 1651559
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 4097,
+            "verification_length_including_root": {
+              "total": 32770,
+              "mean": 7.9985355137905785,
+              "histogram": {
+                "3": 1,
+                "7": 1,
+                "8": 4095
+              }
+            },
+            "accepted_draft_length": {
+              "total": 13724,
+              "mean": 3.3497681230168417,
+              "histogram": {
+                "0": 341,
+                "1": 449,
+                "2": 540,
+                "3": 541,
+                "4": 558,
+                "5": 1668
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17821,
+              "mean": 4.349768123016841,
+              "histogram": {
+                "1": 341,
+                "2": 449,
+                "3": 540,
+                "4": 541,
+                "5": 558,
+                "6": 1668
+              }
+            },
+            "selected_draft_nodes": 28673,
+            "accepted_fraction_of_selected_nodes": 0.47863844034457503
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 73698,
+            "raw_candidate_nodes_histogram": {
+              "2": 1,
+              "6": 1,
+              "10": 2,
+              "14": 1,
+              "18": 4092
+            },
+            "raw_candidate_nodes_mean": 17.988284110324628,
+            "selected_draft_nodes_mean": 6.9985355137905785
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 1653863,
+            "per_request": 20673.2875,
+            "per_output_token": 92.73651452282158
+          },
+          "discard_ns": 0
+        },
+        "specfit": {
+          "requests": 80,
+          "output_tokens": 17739,
+          "decode_tokens": 17659,
+          "request_ns": 1826993518268,
+          "decode_ns": 1675985614482,
+          "decode_tps": 10.536486618626437,
+          "request_tps": 9.70939405237555,
+          "numeric_correct": 63,
+          "unparsed": 15,
+          "truncated": 7,
+          "decode_speedup_vs_ar": 1.616130994505657,
+          "decode_speedup_vs_cached_eagle": 1.0508896033704296,
+          "request_speedup_vs_cached_eagle": 1.0463230404145436,
+          "cache_delta": {
+            "h2d_submissions": 1457826,
+            "resident_hits": 3934653,
+            "inflight_joins": 0,
+            "evictions": 1455522
+          },
+          "acceptance_lengths": {
+            "verification_rounds": 4329,
+            "verification_length_including_root": {
+              "total": 27213,
+              "mean": 6.286209286209286,
+              "histogram": {
+                "1": 46,
+                "2": 154,
+                "3": 235,
+                "4": 296,
+                "5": 533,
+                "6": 575,
+                "7": 1065,
+                "8": 1425
+              }
+            },
+            "accepted_draft_length": {
+              "total": 13402,
+              "mean": 3.0958650958650957,
+              "histogram": {
+                "0": 425,
+                "1": 551,
+                "2": 625,
+                "3": 651,
+                "4": 737,
+                "5": 1340
+              }
+            },
+            "committed_length_including_root": {
+              "total": 17731,
+              "mean": 4.095865095865096,
+              "histogram": {
+                "1": 425,
+                "2": 551,
+                "3": 625,
+                "4": 651,
+                "5": 737,
+                "6": 1340
+              }
+            },
+            "selected_draft_nodes": 22884,
+            "accepted_fraction_of_selected_nodes": 0.5856493619996505
+          },
+          "candidate_tree": {
+            "raw_candidate_nodes_total": 77850,
+            "raw_candidate_nodes_histogram": {
+              "2": 1,
+              "6": 3,
+              "10": 1,
+              "14": 3,
+              "18": 4321
+            },
+            "raw_candidate_nodes_mean": 17.983367983367984,
+            "selected_draft_nodes_mean": 5.286209286209286
+          },
+          "h2d": {
+            "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+            "submissions": 1457826,
+            "per_request": 18222.825,
+            "per_output_token": 82.18197192626417
+          },
+          "discard_ns": 0
+        }
+      }
+    }
+  },
+  "metrics": {
+    "ar": {
+      "requests": 160,
+      "output_tokens": 35742,
+      "decode_tokens": 35582,
+      "request_ns": 5749291823960,
+      "decode_ns": 5452714174303,
+      "decode_tps": 6.525557522836471,
+      "request_tps": 6.21676566338941,
+      "numeric_correct": 124,
+      "unparsed": 30,
+      "truncated": 14,
+      "decode_speedup_vs_ar": 1.0,
+      "decode_speedup_vs_cached_eagle": 0.6490382956843255,
+      "request_speedup_vs_cached_eagle": 0.6681855190606785,
+      "cache_delta": {
+        "h2d_submissions": 2735117,
+        "resident_hits": 11498597,
+        "inflight_joins": 0,
+        "evictions": 2730509
+      },
+      "acceptance_lengths": {
+        "verification_rounds": 35582,
+        "verification_length_including_root": {
+          "total": 35582,
+          "mean": 1.0,
+          "histogram": {
+            "1": 35582
+          }
+        },
+        "accepted_draft_length": {
+          "total": 0,
+          "mean": 0.0,
+          "histogram": {
+            "0": 35582
+          }
+        },
+        "committed_length_including_root": {
+          "total": 35582,
+          "mean": 1.0,
+          "histogram": {
+            "1": 35582
+          }
+        },
+        "selected_draft_nodes": 0,
+        "accepted_fraction_of_selected_nodes": null
+      },
+      "candidate_tree": {
+        "raw_candidate_nodes_total": 0,
+        "raw_candidate_nodes_histogram": {},
+        "raw_candidate_nodes_mean": null,
+        "selected_draft_nodes_mean": null
+      },
+      "h2d": {
+        "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+        "submissions": 2735117,
+        "per_request": 17094.48125,
+        "per_output_token": 76.52389345867607
+      },
+      "discard_ns": 0
+    },
+    "eagle_no_cache": {
+      "requests": 160,
+      "output_tokens": 35668,
+      "decode_tokens": 35508,
+      "request_ns": 6008940017026,
+      "decode_ns": 5685202783783,
+      "decode_tps": 6.245687506747572,
+      "request_tps": 5.935822274633578,
+      "numeric_correct": 124,
+      "unparsed": 32,
+      "truncated": 12,
+      "decode_speedup_vs_ar": 0.9571117080633369,
+      "decode_speedup_vs_cached_eagle": 0.6212021517809418,
+      "request_speedup_vs_cached_eagle": 0.6379893826439594,
+      "cache_delta": {
+        "h2d_submissions": 12328906,
+        "resident_hits": 0,
+        "inflight_joins": 0,
+        "evictions": 203986
+      },
+      "acceptance_lengths": {
+        "verification_rounds": 8194,
+        "verification_length_including_root": {
+          "total": 65540,
+          "mean": 7.9985355137905785,
+          "histogram": {
+            "3": 2,
+            "7": 2,
+            "8": 8190
+          }
+        },
+        "accepted_draft_length": {
+          "total": 27448,
+          "mean": 3.3497681230168417,
+          "histogram": {
+            "0": 682,
+            "1": 898,
+            "2": 1080,
+            "3": 1082,
+            "4": 1116,
+            "5": 3336
+          }
+        },
+        "committed_length_including_root": {
+          "total": 35642,
+          "mean": 4.349768123016841,
+          "histogram": {
+            "1": 682,
+            "2": 898,
+            "3": 1080,
+            "4": 1082,
+            "5": 1116,
+            "6": 3336
+          }
+        },
+        "selected_draft_nodes": 57346,
+        "accepted_fraction_of_selected_nodes": 0.47863844034457503
+      },
+      "candidate_tree": {
+        "raw_candidate_nodes_total": 147396,
+        "raw_candidate_nodes_histogram": {
+          "2": 2,
+          "6": 2,
+          "10": 4,
+          "14": 2,
+          "18": 8184
+        },
+        "raw_candidate_nodes_mean": 17.988284110324628,
+        "selected_draft_nodes_mean": 6.9985355137905785
+      },
+      "h2d": {
+        "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+        "submissions": 12328906,
+        "per_request": 77055.6625,
+        "per_output_token": 345.65733991252665
+      },
+      "discard_ns": 39490103400
+    },
+    "eagle_cache": {
+      "requests": 160,
+      "output_tokens": 35668,
+      "decode_tokens": 35508,
+      "request_ns": 3833639931807,
+      "decode_ns": 3531660202597,
+      "decode_tps": 10.05419490071249,
+      "request_tps": 9.30395150156623,
+      "numeric_correct": 124,
+      "unparsed": 32,
+      "truncated": 12,
+      "decode_speedup_vs_ar": 1.5407411344589945,
+      "decode_speedup_vs_cached_eagle": 1.0,
+      "request_speedup_vs_cached_eagle": 1.0,
+      "cache_delta": {
+        "h2d_submissions": 3307751,
+        "resident_hits": 9021155,
+        "inflight_joins": 0,
+        "evictions": 3303143
+      },
+      "acceptance_lengths": {
+        "verification_rounds": 8194,
+        "verification_length_including_root": {
+          "total": 65540,
+          "mean": 7.9985355137905785,
+          "histogram": {
+            "3": 2,
+            "7": 2,
+            "8": 8190
+          }
+        },
+        "accepted_draft_length": {
+          "total": 27448,
+          "mean": 3.3497681230168417,
+          "histogram": {
+            "0": 682,
+            "1": 898,
+            "2": 1080,
+            "3": 1082,
+            "4": 1116,
+            "5": 3336
+          }
+        },
+        "committed_length_including_root": {
+          "total": 35642,
+          "mean": 4.349768123016841,
+          "histogram": {
+            "1": 682,
+            "2": 898,
+            "3": 1080,
+            "4": 1082,
+            "5": 1116,
+            "6": 3336
+          }
+        },
+        "selected_draft_nodes": 57346,
+        "accepted_fraction_of_selected_nodes": 0.47863844034457503
+      },
+      "candidate_tree": {
+        "raw_candidate_nodes_total": 147396,
+        "raw_candidate_nodes_histogram": {
+          "2": 2,
+          "6": 2,
+          "10": 4,
+          "14": 2,
+          "18": 8184
+        },
+        "raw_candidate_nodes_mean": 17.988284110324628,
+        "selected_draft_nodes_mean": 6.9985355137905785
+      },
+      "h2d": {
+        "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+        "submissions": 3307751,
+        "per_request": 20673.44375,
+        "per_output_token": 92.73721543119883
+      },
+      "discard_ns": 0
+    },
+    "specfit": {
+      "requests": 160,
+      "output_tokens": 35478,
+      "decode_tokens": 35318,
+      "request_ns": 3643571914455,
+      "decode_ns": 3341845133665,
+      "decode_tps": 10.568413133276097,
+      "request_tps": 9.737148280029693,
+      "numeric_correct": 126,
+      "unparsed": 30,
+      "truncated": 14,
+      "decode_speedup_vs_ar": 1.6195417933703715,
+      "decode_speedup_vs_cached_eagle": 1.051144645358642,
+      "request_speedup_vs_cached_eagle": 1.0465605155390738,
+      "cache_delta": {
+        "h2d_submissions": 2915683,
+        "resident_hits": 7869275,
+        "inflight_joins": 0,
+        "evictions": 2911075
+      },
+      "acceptance_lengths": {
+        "verification_rounds": 8658,
+        "verification_length_including_root": {
+          "total": 54426,
+          "mean": 6.286209286209286,
+          "histogram": {
+            "1": 92,
+            "2": 308,
+            "3": 470,
+            "4": 592,
+            "5": 1066,
+            "6": 1150,
+            "7": 2130,
+            "8": 2850
+          }
+        },
+        "accepted_draft_length": {
+          "total": 26804,
+          "mean": 3.0958650958650957,
+          "histogram": {
+            "0": 850,
+            "1": 1102,
+            "2": 1250,
+            "3": 1302,
+            "4": 1474,
+            "5": 2680
+          }
+        },
+        "committed_length_including_root": {
+          "total": 35462,
+          "mean": 4.095865095865096,
+          "histogram": {
+            "1": 850,
+            "2": 1102,
+            "3": 1250,
+            "4": 1302,
+            "5": 1474,
+            "6": 2680
+          }
+        },
+        "selected_draft_nodes": 45768,
+        "accepted_fraction_of_selected_nodes": 0.5856493619996505
+      },
+      "candidate_tree": {
+        "raw_candidate_nodes_total": 155700,
+        "raw_candidate_nodes_histogram": {
+          "2": 2,
+          "6": 6,
+          "10": 2,
+          "14": 6,
+          "18": 8642
+        },
+        "raw_candidate_nodes_mean": 17.983367983367984,
+        "selected_draft_nodes_mean": 5.286209286209286
+      },
+      "h2d": {
+        "scope": "expert-weight transfer submissions during measured requests, including prefill and decode; excludes model loading, reference/atlas generation and warmup",
+        "submissions": 2915683,
+        "per_request": 18223.01875,
+        "per_output_token": 82.18284570719882
+      },
+      "discard_ns": 0
+    }
+  },
+  "validation": {
+    "files_hash_verified": 1120,
+    "eagle_cache_pair_queries_equal": 160,
+    "cross_gpu_outputs_equal": 320,
+    "independent_record_verification": "All reused references and measurements also passed verify_record, stream continuity and inference-source checks during b73d660 recovery preparation.",
+    "diagnostic_measurement_hashes_verified": 640,
+    "acceptance_record_consistency": "Official frozen summarize/acceptance_lengths checked every cycle against selected nodes, actual commits, offsets, output tokens and forward counts.",
+    "h2d_counter_consistency": "Every request cache delta matches the recorded layer counters; no-cache H2D equals the sum of actual forward expert unions."
+  },
+  "limitations": [
+    "80-question Spec-Bench GSM8K subset, not the full GSM8K test set.",
+    "Input plus output cap is 512 tokens; truncated and unparsed responses are retained.",
+    "SpecFit uses offline full-pool routing; route acquisition is excluded from timing.",
+    "Two physical GPU repetitions do not create additional independent questions.",
+    "The other datasets and the overall comparison are incomplete."
+  ],
+  "protocol": "specfit-main-comparison-v1",
+  "configuration": {
+    "original_method_commit": "c02847726263ee3ca886544d2e93c6561124ec96",
+    "image_id": "sha256:64f6847e922677a269c82e23f140cca5ceafd5899e17002d52bc05035eec6567",
+    "execution": "ready_demand",
+    "slots_per_layer": 48,
+    "max_inflight": 2,
+    "tree": {
+      "top_k": 2,
+      "max_depth": 5,
+      "pool_node_budget": 18,
+      "eagle_draft_node_budget": 7,
+      "specfit_draft_node_budget": [
+        0,
+        7
+      ]
+    },
+    "cache_policy": "cold_start_per_dataset_method_stream_then_preserve; eagle_no_cache_discards_before_every_target_forward",
+    "route_information": "offline_full_pool_atlas_from_separate_audited_generation",
+    "timing_scope": "request includes prefill/draft/selection/verify/commit/cache-discard; excludes loading/reference/atlas/hash/file-write/quality-scoring"
+  },
+  "diagnostics_observed_ns": 1790324785383351020,
+  "diagnostic_definitions": {
+    "h2d": "One expert-weight transfer submission counted by the runtime cache. Includes measured-request prefill and decode; excludes model loading, warmup, reference generation and offline route acquisition. No separate prefill/decode H2D counts are recorded.",
+    "h2d_per_output_token": "Total expert H2D submissions divided by all emitted output tokens, including each request's first token.",
+    "accepted_draft_length": "Actual accepted draft tokens per target verification round, excluding the root/seed; EOS stopping is applied. Weighted by rounds across requests and GPU repeats.",
+    "committed_length_including_root": "Actual committed tokens per target verification round, including the root/seed. A final pending token emitted without verification is excluded from this round statistic.",
+    "ar": "No drafted or selected nodes. Accepted draft length is zero and committed length is one per actual decode forward.",
+    "candidate_nodes": "All branch nodes in the candidate pool or retained tree; these are not accepted path lengths. The root is excluded from both candidate and selected draft-node counts.",
+    "comparison": "EAGLE and SpecFit acceptance lengths come from their own measured generation streams, rather than a paired before/after pruning experiment on identical prefixes."
+  }
+}

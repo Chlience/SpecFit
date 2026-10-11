@@ -1,0 +1,21 @@
+{
+  "target": {
+    "repo_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "revision": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
+    "directory": "qwen3/Qwen3-30B-A3B-Instruct-2507",
+    "files": 27,
+    "bytes": 61084262963,
+    "eagle_verifier_tensors": [
+      "model.embed_tokens.weight",
+      "lm_head.weight",
+      "model.norm.weight"
+    ]
+  },
+  "drafter": {
+    "repo_id": "RedHatAI/Qwen3-30B-A3B-Instruct-2507-speculator.eagle3",
+    "revision": "a7600ef6ca94c4e06cc1022879944be15949aee4",
+    "directory": "qwen3/Qwen3-30B-A3B-Instruct-2507-speculator.eagle3",
+    "files": 6,
+    "bytes": 1044562197
+  }
+}

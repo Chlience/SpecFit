@@ -1,0 +1,8 @@
+{
+  "source_tag": "nvcr.io/nvidia/pytorch:25.11-py3",
+  "mirror_tag": "nvcr.io/nvidia/pytorch:25.11-py3",
+  "index_digest": "sha256:417cbf33f87b5378849df37983552cd1f8bc8b62fe1ceabe004de816a55dff21",
+  "linux_amd64_manifest_digest": "sha256:e14cf0da7ca0d878d0874eb81062b77df275491d4a8d030a2a7463a4e8b07f01",
+  "image_id": "sha256:06faed719d1bbd31d7053c96d0c94fce4f2b5f92fd95f07d60ec323c9744f118",
+  "created": "2025-11-08T06:22:39.289806477Z"
+}

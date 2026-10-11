@@ -1,0 +1,2986 @@
+{
+  "source_commit": "1886852f2e95383982dea96c8448b1621f05c0c1",
+  "scope": "Fixed-state local cycles; offline route acquisition excluded; complete stages; all scheduled samples retained",
+  "primary_decision": {
+    "status": "frozen_before_holdout",
+    "decided_at_ns": 1789622599563014894,
+    "source_commit": "1886852f2e95383982dea96c8448b1621f05c0c1",
+    "primary_method": "expert_fast_dynamic",
+    "primary_baseline": "probability_dynamic",
+    "report_methods": [
+      "target_only",
+      "probability_fixed",
+      "expert_cost_fixed",
+      "probability_dynamic",
+      "expert_cost_dynamic",
+      "expert_fast_dynamic",
+      "expert_cache_dynamic",
+      "expert_calibrated_dynamic",
+      "expert_guarded_dynamic"
+    ],
+    "calibration_combined_sha256": "63f494c2a30124b6a4e6f0aadb73fac35b747062ef042834fc6d6ddeaac5a59d",
+    "development_combined_sha256": "11e9dff436d6c7306acfb9585f4568a19dc01b99a632898e3d6a28ef8c6d633d",
+    "selection_rule": "Choose among the four predetermined variants by the geometric mean of development aggregate TPS ratios against dynamic probability, giving cold and natural modes equal weight; prefer the simpler method on an exact tie.",
+    "selection_rule_timing": "Specified after complete development analysis and before any holdout measurement; not claimed preregistered before development.",
+    "development_selection_scores": {
+      "expert_fast_dynamic": 0.9853840320864982,
+      "expert_cache_dynamic": 0.984622807135839,
+      "expert_calibrated_dynamic": 0.9681732791370816,
+      "expert_guarded_dynamic": 0.9693089177465214
+    },
+    "rationale": [
+      "The incremental method preserves the original expert decisions and has the best mode-balanced development score among the four added variants.",
+      "No added variant wins in both cache modes on development; primary status is only for heldout confirmation, not deployment or a claim of superiority.",
+      "The cache model changed only one of twelve natural-cache decisions, while adding resident-read and missing-work computation.",
+      "Acceptance calibration and the 2% guard showed mixed prompt-specific effects; all remain in the heldout ablation."
+    ],
+    "frozen_parameters": {
+      "acceptance_exponent": 0.75,
+      "guard_margin": 0.02,
+      "models_sha256": "ba864132870ddc9ec5290bb4e68a1cdfb450c335777056cd4a0db2206e8e2baf"
+    },
+    "development_revisions_after_review": "none; reachable-path-only training calibration still selected 0.75; a utility-floor counterfactual did not establish an acceptance guarantee and has unmeasured queries, so it remains an unimplemented candidate.",
+    "correctness_scope": "Exact same-query BF16 logits, routes, acceptance, checkpoint restoration and commit checks; cross-query-shape greedy equivalence, full generation quality and online route acquisition are not established.",
+    "cross_query_observation": {
+      "state_id": "q404-c0",
+      "shared_parent_raw_id": 7,
+      "subset_ids": [
+        1,
+        3,
+        7,
+        11
+      ],
+      "superset_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        11
+      ],
+      "subset_argmax": 279,
+      "superset_argmax": 11387,
+      "subset_committed_tokens": 5,
+      "superset_committed_tokens": 4,
+      "cause": "not established"
+    },
+    "holdout_rules": {
+      "questions": [
+        409,
+        419,
+        429,
+        439,
+        449,
+        459,
+        469,
+        479
+      ],
+      "boundaries": [
+        0,
+        4,
+        8,
+        12
+      ],
+      "repetitions": 5,
+      "audits_per_configuration": 1,
+      "no_post_holdout_tuning": true,
+      "preserve_all_scheduled_records": true
+    },
+    "persisted_at_ns": 1789622599723990010
+  },
+  "stages": {
+    "calibration": {
+      "stage": "calibration",
+      "source_commit": "1886852f2e95383982dea96c8448b1621f05c0c1",
+      "combined_sha256": "63f494c2a30124b6a4e6f0aadb73fac35b747062ef042834fc6d6ddeaac5a59d",
+      "counts": {
+        "cycles": 864,
+        "prompts": 3,
+        "states": 9
+      },
+      "resources_gib": {
+        "max_gpu_reserved_bytes": 25.380859375,
+        "max_process_rss_bytes": 81.1089859008789
+      },
+      "models": {
+        "acceptance_exponent": 0.75,
+        "by_mode": {
+          "cold": {
+            "cache": {
+              "expert_ns": 408001.02210081305,
+              "missing_ns": 0.0,
+              "size_intercept_ns": [
+                122701799.5966211,
+                117975245.3848437,
+                118338102.26433855,
+                116388805.3043747,
+                115309303.568654,
+                114769698.64571089,
+                113887228.27576393,
+                113670683.54454744
+              ]
+            },
+            "legacy": {
+              "expert_ns": 408001.02210081305,
+              "size_intercept_ns": [
+                122701799.5966211,
+                117975245.3848437,
+                118338102.26433855,
+                116388805.3043747,
+                115309303.568654,
+                114769698.64571089,
+                113887228.27576393,
+                113670683.54454744
+              ],
+              "size_mean_ns": [
+                279374192.0833333,
+                363682527.5833333,
+                419601523.6388889,
+                469219022.5277778,
+                511976963.9444444,
+                552577462.0833334,
+                578011057.6388888,
+                605651916.0277778
+              ]
+            }
+          },
+          "natural": {
+            "cache": {
+              "expert_ns": 194661.53683878394,
+              "missing_ns": 122317.27659426273,
+              "size_intercept_ns": [
+                136921315.41846657,
+                137527671.3292884,
+                138041973.71620372,
+                135953131.32681027,
+                135216270.50820312,
+                143776396.13941303,
+                133874769.82540347,
+                133247041.03297813
+              ]
+            },
+            "legacy": {
+              "expert_ns": 210715.51267433458,
+              "size_intercept_ns": [
+                142213640.2719444,
+                147532305.64501184,
+                150522238.9747455,
+                152268786.28951707,
+                152742629.59439692,
+                163203998.73306817,
+                155175323.9989069,
+                156067696.05019823
+              ],
+              "size_mean_ns": [
+                223128397.1388889,
+                274429869.9444444,
+                306112232.25,
+                334490879.0833333,
+                357604933.5833333,
+                389313450.25,
+                394875926.0833333,
+                410155485.0833333
+              ]
+            }
+          }
+        },
+        "guard_margin": 0.02,
+        "training_questions": [
+          401,
+          402,
+          403
+        ]
+      },
+      "acceptance": {
+        "accepted_by_grouped_validation": true,
+        "fitted_brier": 0.42607319068769434,
+        "folds": [
+          {
+            "calibrated_brier": 0.4417366103053862,
+            "exponent": 0.75,
+            "question_id": 401,
+            "raw_brier": 0.43842456662584917
+          },
+          {
+            "calibrated_brier": 0.40692979949377195,
+            "exponent": 0.75,
+            "question_id": 402,
+            "raw_brier": 0.42251304234220716
+          },
+          {
+            "calibrated_brier": 0.4295531622639248,
+            "exponent": 0.75,
+            "question_id": 403,
+            "raw_brier": 0.43716457739488956
+          }
+        ],
+        "observations": 81,
+        "raw_brier": 0.43270072878764865,
+        "training_questions": [
+          401,
+          402,
+          403
+        ]
+      },
+      "cost": {
+        "cold": {
+          "cache": {
+            "cold_collinear_terms_collapsed": true,
+            "max_absolute_relative_error": 0.2615740879566927,
+            "mean_absolute_relative_error": 0.010097268547603283,
+            "point_count": 144,
+            "slope_candidates": 0,
+            "solver": "nonnegative_intercept_active_sets"
+          },
+          "held_out_prompt_folds": [
+            {
+              "cache_mean_absolute_relative_error": 0.009183766529375954,
+              "legacy_mean_absolute_relative_error": 0.009183766529375954,
+              "question_id": 401
+            },
+            {
+              "cache_mean_absolute_relative_error": 0.009401986627407244,
+              "legacy_mean_absolute_relative_error": 0.009401986627407244,
+              "question_id": 402
+            },
+            {
+              "cache_mean_absolute_relative_error": 0.013625330346548654,
+              "legacy_mean_absolute_relative_error": 0.013625330346548654,
+              "question_id": 403
+            }
+          ],
+          "legacy": {
+            "expert_slope_at_zero": false,
+            "fit_scope": "calibration_only_no_evaluation_timing_or_acceptance",
+            "max_absolute_relative_error": 0.2615740879566927,
+            "mean_absolute_relative_error": 0.010097268547603283,
+            "point_count": 144,
+            "rmse_ns": 9206207.956962626
+          }
+        },
+        "natural": {
+          "cache": {
+            "cold_collinear_terms_collapsed": false,
+            "max_absolute_relative_error": 0.2995310932887538,
+            "mean_absolute_relative_error": 0.014908068144120195,
+            "point_count": 144,
+            "slope_candidates": 769,
+            "solver": "nonnegative_intercept_active_sets"
+          },
+          "held_out_prompt_folds": [
+            {
+              "cache_mean_absolute_relative_error": 0.015172420355233194,
+              "legacy_mean_absolute_relative_error": 0.03338222361271643,
+              "question_id": 401
+            },
+            {
+              "cache_mean_absolute_relative_error": 0.015346438117107786,
+              "legacy_mean_absolute_relative_error": 0.03494391357556238,
+              "question_id": 402
+            },
+            {
+              "cache_mean_absolute_relative_error": 0.015461142114125208,
+              "legacy_mean_absolute_relative_error": 0.06928488132740411,
+              "question_id": 403
+            }
+          ],
+          "legacy": {
+            "expert_slope_at_zero": false,
+            "fit_scope": "calibration_only_no_evaluation_timing_or_acceptance",
+            "max_absolute_relative_error": 0.25546449610455335,
+            "mean_absolute_relative_error": 0.04191915256135221,
+            "point_count": 144,
+            "rmse_ns": 20026317.245488547
+          }
+        }
+      }
+    },
+    "development": {
+      "stage": "development",
+      "source_commit": "1886852f2e95383982dea96c8448b1621f05c0c1",
+      "combined_sha256": "11e9dff436d6c7306acfb9585f4568a19dc01b99a632898e3d6a28ef8c6d633d",
+      "counts": {
+        "cycles": 864,
+        "prompts": 4,
+        "states": 12
+      },
+      "resources_gib": {
+        "max_gpu_reserved_bytes": 25.392578125,
+        "max_process_rss_bytes": 80.66605377197266
+      },
+      "by_mode": {
+        "cold": {
+          "methods": {
+            "expert_cache_dynamic": {
+              "tokens_per_second": 6.705485892326152,
+              "mean_cycle_ms": 534.3883188888889,
+              "mean_committed_tokens": 3.5833333333333335,
+              "mean_draft_nodes": 4.083333333333333,
+              "node_count_distribution": {
+                "1": 1,
+                "2": 1,
+                "3": 1,
+                "4": 4,
+                "5": 3,
+                "6": 2
+              },
+              "mean_selector_ms": 3.0605024166666666,
+              "selector_fraction": 0.005727113240480491,
+              "expert_proxy_mean_absolute_relative_error": 0.0025479491544374198,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.5833333333333335,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.003403310402441878,
+                "cache": 0.003403310402441878
+              },
+              "utility_mean_absolute_token_error": 0.8680878212802564,
+              "mean_proposal_ms": 55.90439447222222,
+              "mean_verification_cuda_ms": 474.5562159722222,
+              "mean_h2d_submissions": 1020.0,
+              "min_cycle_ms": 335.199393,
+              "max_cycle_ms": 735.108701,
+              "median_cycle_ms": 523.598008,
+              "differing_choices_vs_probability_dynamic": 7,
+              "gain_vs_target_only": 0.4365380889998052,
+              "gain_vs_probability_fixed": 0.01987147461638772
+            },
+            "expert_calibrated_dynamic": {
+              "tokens_per_second": 6.271402893382842,
+              "mean_cycle_ms": 544.8010157777778,
+              "mean_committed_tokens": 3.4166666666666665,
+              "mean_draft_nodes": 4.666666666666667,
+              "node_count_distribution": {
+                "1": 1,
+                "3": 3,
+                "5": 3,
+                "6": 4,
+                "7": 1
+              },
+              "mean_selector_ms": 3.3061371944444446,
+              "selector_fraction": 0.006068522448924738,
+              "expert_proxy_mean_absolute_relative_error": 0.0026695668110389703,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.6666666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.03296110406210442,
+                "cache": 0.03296110406210442
+              },
+              "utility_mean_absolute_token_error": 0.7470965994863761,
+              "mean_proposal_ms": 58.53881694444445,
+              "mean_verification_cuda_ms": 482.171507,
+              "mean_h2d_submissions": 1010.25,
+              "min_cycle_ms": 334.887845,
+              "max_cycle_ms": 810.824753,
+              "median_cycle_ms": 523.648714,
+              "differing_choices_vs_probability_dynamic": 9,
+              "gain_vs_target_only": 0.34354307390582717,
+              "gain_vs_probability_fixed": -0.04615041780827023
+            },
+            "expert_cost_dynamic": {
+              "tokens_per_second": 6.70936450028551,
+              "mean_cycle_ms": 534.0793950277778,
+              "mean_committed_tokens": 3.5833333333333335,
+              "mean_draft_nodes": 4.083333333333333,
+              "node_count_distribution": {
+                "1": 1,
+                "2": 1,
+                "3": 1,
+                "4": 4,
+                "5": 3,
+                "6": 2
+              },
+              "mean_selector_ms": 3.287466472222222,
+              "selector_fraction": 0.006155389072913474,
+              "expert_proxy_mean_absolute_relative_error": 0.0025479491544374198,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.5833333333333335,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.005689337480838386,
+                "cache": 0.005689337480838386
+              },
+              "utility_mean_absolute_token_error": 0.8680878212802564,
+              "mean_proposal_ms": 56.47202219444445,
+              "mean_verification_cuda_ms": 473.8101468333333,
+              "mean_h2d_submissions": 1020.0,
+              "min_cycle_ms": 338.234231,
+              "max_cycle_ms": 732.77733,
+              "median_cycle_ms": 523.131701,
+              "differing_choices_vs_probability_dynamic": 7,
+              "gain_vs_target_only": 0.4373690158193353,
+              "gain_vs_probability_fixed": 0.0204613918397607
+            },
+            "expert_cost_fixed": {
+              "tokens_per_second": 6.244038080737838,
+              "mean_cycle_ms": 613.9189549722222,
+              "mean_committed_tokens": 3.8333333333333335,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 12
+              },
+              "mean_selector_ms": 2.7743194444444446,
+              "selector_fraction": 0.004519032067628492,
+              "expert_proxy_mean_absolute_relative_error": 0.0029799948133255316,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.5,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.006841891094189552,
+                "cache": 0.006841891094189552
+              },
+              "utility_mean_absolute_token_error": 0.9522140036886063,
+              "mean_proposal_ms": 57.14092958333334,
+              "mean_verification_cuda_ms": 552.5556004722222,
+              "mean_h2d_submissions": 1212.3333333333333,
+              "min_cycle_ms": 527.091635,
+              "max_cycle_ms": 921.609585,
+              "median_cycle_ms": 570.326173,
+              "differing_choices_vs_probability_dynamic": 12,
+              "gain_vs_target_only": 0.33768062093908857,
+              "gain_vs_probability_fixed": -0.0503124714272033
+            },
+            "expert_fast_dynamic": {
+              "tokens_per_second": 6.712856228657338,
+              "mean_cycle_ms": 533.80159075,
+              "mean_committed_tokens": 3.5833333333333335,
+              "mean_draft_nodes": 4.083333333333333,
+              "node_count_distribution": {
+                "1": 1,
+                "2": 1,
+                "3": 1,
+                "4": 4,
+                "5": 3,
+                "6": 2
+              },
+              "mean_selector_ms": 2.9472365555555555,
+              "selector_fraction": 0.005521221005382616,
+              "expert_proxy_mean_absolute_relative_error": 0.0025479491544374198,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.5833333333333335,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.00386875945862028,
+                "cache": 0.00386875945862028
+              },
+              "utility_mean_absolute_token_error": 0.8680878212802564,
+              "mean_proposal_ms": 56.331097916666664,
+              "mean_verification_cuda_ms": 473.66650302777776,
+              "mean_h2d_submissions": 1020.0,
+              "min_cycle_ms": 334.431147,
+              "max_cycle_ms": 735.601151,
+              "median_cycle_ms": 522.787134,
+              "differing_choices_vs_probability_dynamic": 7,
+              "gain_vs_target_only": 0.43811706016438623,
+              "gain_vs_probability_fixed": 0.02099246657777676
+            },
+            "expert_guarded_dynamic": {
+              "tokens_per_second": 6.560075466150183,
+              "mean_cycle_ms": 533.5304476388889,
+              "mean_committed_tokens": 3.5,
+              "mean_draft_nodes": 4.583333333333333,
+              "node_count_distribution": {
+                "1": 1,
+                "3": 3,
+                "4": 1,
+                "5": 2,
+                "6": 4,
+                "7": 1
+              },
+              "mean_selector_ms": 3.182015861111111,
+              "selector_fraction": 0.005964075480964498,
+              "expert_proxy_mean_absolute_relative_error": 0.0027675319798903717,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.75,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.005913247350780776,
+                "cache": 0.005913247350780776
+              },
+              "utility_mean_absolute_token_error": 0.7608116289328801,
+              "mean_proposal_ms": 55.97218216666666,
+              "mean_verification_cuda_ms": 473.66038780555556,
+              "mean_h2d_submissions": 1016.4166666666666,
+              "min_cycle_ms": 338.293041,
+              "max_cycle_ms": 791.002648,
+              "median_cycle_ms": 517.969091,
+              "differing_choices_vs_probability_dynamic": 7,
+              "gain_vs_target_only": 0.4053863396569979,
+              "gain_vs_probability_fixed": -0.002244737116814277
+            },
+            "probability_dynamic": {
+              "tokens_per_second": 6.450352155463679,
+              "mean_cycle_ms": 581.3636076944445,
+              "mean_committed_tokens": 3.75,
+              "mean_draft_nodes": 4.25,
+              "node_count_distribution": {
+                "1": 1,
+                "3": 2,
+                "4": 5,
+                "5": 1,
+                "6": 2,
+                "7": 1
+              },
+              "mean_selector_ms": 0.6030596388888889,
+              "selector_fraction": 0.0010373192110880245,
+              "expert_proxy_mean_absolute_relative_error": 0.002367751540383813,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.5,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.026850061157622146,
+                "cache": 0.026850061157622146
+              },
+              "utility_mean_absolute_token_error": 1.0035582874588242,
+              "mean_proposal_ms": 56.22315311111111,
+              "mean_verification_cuda_ms": 521.2357101388889,
+              "mean_h2d_submissions": 1112.75,
+              "min_cycle_ms": 335.073283,
+              "max_cycle_ms": 904.722011,
+              "median_cycle_ms": 524.1797895,
+              "differing_choices_vs_probability_dynamic": 0,
+              "gain_vs_target_only": 0.38187995733312996,
+              "gain_vs_probability_fixed": -0.01893311383798535
+            },
+            "probability_fixed": {
+              "tokens_per_second": 6.574834240606974,
+              "mean_cycle_ms": 684.4279011944444,
+              "mean_committed_tokens": 4.5,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 12
+              },
+              "mean_selector_ms": 0.5488351111111112,
+              "selector_fraction": 0.0008018888624401481,
+              "expert_proxy_mean_absolute_relative_error": 0.002858951252097249,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.9166666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.014768603335808159,
+                "cache": 0.014768603335808159
+              },
+              "utility_mean_absolute_token_error": 1.4397626956560114,
+              "mean_proposal_ms": 55.092769277777776,
+              "mean_verification_cuda_ms": 625.0948587777777,
+              "mean_h2d_submissions": 1376.8333333333333,
+              "min_cycle_ms": 606.196461,
+              "max_cycle_ms": 1175.44179,
+              "median_cycle_ms": 664.8226735,
+              "differing_choices_vs_probability_dynamic": 11,
+              "gain_vs_target_only": 0.40854815999255356,
+              "gain_vs_probability_fixed": 0.0
+            },
+            "target_only": {
+              "tokens_per_second": 4.66780932832409,
+              "mean_cycle_ms": 214.23325797222222,
+              "mean_committed_tokens": 1,
+              "mean_draft_nodes": 0,
+              "node_count_distribution": {
+                "0": 12
+              },
+              "mean_selector_ms": 0.0,
+              "selector_fraction": 0.0,
+              "expert_proxy_mean_absolute_relative_error": 0.0,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 0,
+              "cost_model_mean_absolute_relative_errors": null,
+              "utility_mean_absolute_token_error": 0,
+              "mean_proposal_ms": 0.0,
+              "mean_verification_cuda_ms": 214.0433357777778,
+              "mean_h2d_submissions": 384.0,
+              "min_cycle_ms": 210.53424,
+              "max_cycle_ms": 221.212418,
+              "median_cycle_ms": 213.2411115,
+              "differing_choices_vs_probability_dynamic": 12,
+              "gain_vs_target_only": 0.0,
+              "gain_vs_probability_fixed": -0.2900491240531765
+            }
+          },
+          "comparisons": {
+            "expert_cache_dynamic_vs_expert_fast_dynamic": {
+              "gain": -0.0010979434208231442,
+              "interval95": [
+                -0.0017888138047834623,
+                -0.00020481961633445067
+              ],
+              "prompt_gains": {
+                "404": 0.0002547201393117149,
+                "414": -0.0013922554447530766,
+                "424": -0.0008494665449356731,
+                "434": -0.0020403370686211675
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 1.001099150225582,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": []
+            },
+            "expert_cache_dynamic_vs_probability_dynamic": {
+              "gain": 0.03955345858851533,
+              "interval95": [
+                -0.006848414045919071,
+                0.10209988973966344
+              ],
+              "prompt_gains": {
+                "404": 0.048612406617984716,
+                "414": 0.02066163600177795,
+                "424": 0.14775536791140875,
+                "434": -0.02478799798910969
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 1,
+              "aggregate_cycle_ratio": 0.919198091893215,
+              "aggregate_token_ratio": 0.9555555555555556,
+              "differing_choice_states": [
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c4",
+                "q434-c8"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_expert_cache_dynamic": {
+              "gain": -0.06473550252936644,
+              "interval95": [
+                -0.11174179554576003,
+                0.017188334444147912
+              ],
+              "prompt_gains": {
+                "404": -0.1298396206938761,
+                "414": -0.09670194614510719,
+                "424": 0.09418034141804887,
+                "434": -0.06625918378290929
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 1.0194852629087012,
+              "aggregate_token_ratio": 0.9534883720930233,
+              "differing_choice_states": [
+                "q404-c0",
+                "q414-c0",
+                "q414-c4",
+                "q424-c0",
+                "q424-c8",
+                "q434-c0"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_probability_dynamic": {
+              "gain": -0.027742556959353126,
+              "interval95": [
+                -0.08579517042007423,
+                0.1304001077429131
+              ],
+              "prompt_gains": {
+                "404": -0.08753903051218703,
+                "414": -0.07803833055524301,
+                "424": 0.2558513603257033,
+                "434": -0.08940474925764819
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 0.9371089083789308,
+              "aggregate_token_ratio": 0.9111111111111111,
+              "differing_choice_states": [
+                "q404-c0",
+                "q414-c0",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4",
+                "q434-c8"
+              ]
+            },
+            "expert_cost_dynamic_vs_expert_cost_fixed": {
+              "gain": 0.07452331544600144,
+              "interval95": [
+                0.03042510578046409,
+                0.14672426995257215
+              ],
+              "prompt_gains": {
+                "404": 0.06068857116590198,
+                "414": 0.05089758788628829,
+                "424": 0.20772736003359005,
+                "434": 0.01762626996684702
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 0,
+              "aggregate_cycle_ratio": 0.8699509775715316,
+              "aggregate_token_ratio": 0.9347826086956522,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c4",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4",
+                "q434-c8"
+              ]
+            },
+            "expert_cost_dynamic_vs_probability_dynamic": {
+              "gain": 0.04015476032613785,
+              "interval95": [
+                -0.004126461734438536,
+                0.09964724669013303
+              ],
+              "prompt_gains": {
+                "404": 0.049985233491540715,
+                "414": 0.021277832390367513,
+                "424": 0.14405610231073762,
+                "434": -0.021772693675268573
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 1,
+              "aggregate_cycle_ratio": 0.9186667138416437,
+              "aggregate_token_ratio": 0.9555555555555556,
+              "differing_choice_states": [
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c4",
+                "q434-c8"
+              ]
+            },
+            "expert_cost_fixed_vs_probability_fixed": {
+              "gain": -0.0503124714272033,
+              "interval95": [
+                -0.12971058660354373,
+                0.02877349972569765
+              ],
+              "prompt_gains": {
+                "404": 0.05328355758048753,
+                "414": -0.08287311058395086,
+                "424": -0.1728241477082233,
+                "434": 0.00778617405580273
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.8969811924686706,
+              "aggregate_token_ratio": 0.8518518518518519,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c4",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4"
+              ]
+            },
+            "expert_fast_dynamic_vs_expert_cost_dynamic": {
+              "gain": 0.0005204260957472062,
+              "interval95": [
+                -0.001263720399410917,
+                0.002765586585149249
+              ],
+              "prompt_gains": {
+                "404": -0.0015617948714287122,
+                "414": 0.0007899970892704111,
+                "424": 0.004086403013704887,
+                "434": -0.0010442103036572004
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9994798446066933,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": []
+            },
+            "expert_fast_dynamic_vs_probability_dynamic": {
+              "gain": 0.04069608400702718,
+              "interval95": [
+                -0.0052679549601638564,
+                0.10319356250504419
+              ],
+              "prompt_gains": {
+                "404": 0.04834537193879762,
+                "414": 0.02208463890529222,
+                "424": 0.14873117661506785,
+                "434": -0.02279416870785167
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 1,
+              "aggregate_cycle_ratio": 0.9181888643957876,
+              "aggregate_token_ratio": 0.9555555555555556,
+              "differing_choice_states": [
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c4",
+                "q434-c8"
+              ]
+            },
+            "expert_guarded_dynamic_vs_expert_calibrated_dynamic": {
+              "gain": 0.04602998366951172,
+              "interval95": [
+                0.018879949425022025,
+                0.0665507244287471
+              ],
+              "prompt_gains": {
+                "404": 0.05260080719286275,
+                "414": 0.07555727313986371,
+                "424": 0.0005123980440739917,
+                "434": 0.06832012859447856
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 0,
+              "aggregate_cycle_ratio": 0.9793125052771817,
+              "aggregate_token_ratio": 1.024390243902439,
+              "differing_choice_states": [
+                "q414-c0",
+                "q434-c8"
+              ]
+            },
+            "expert_guarded_dynamic_vs_probability_dynamic": {
+              "gain": 0.017010437266369083,
+              "interval95": [
+                -0.03286088851377755,
+                0.15452457826335664
+              ],
+              "prompt_gains": {
+                "404": -0.039542846985145874,
+                "414": -0.008377420872520802,
+                "424": 0.2564948561063818,
+                "434": -0.027192764629409227
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 0.9177224727821356,
+              "aggregate_token_ratio": 0.9333333333333333,
+              "differing_choice_states": [
+                "q404-c0",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4"
+              ]
+            },
+            "probability_dynamic_vs_probability_fixed": {
+              "gain": -0.01893311383798535,
+              "interval95": [
+                -0.08438040340285036,
+                0.04564932038243796
+              ],
+              "prompt_gains": {
+                "404": 0.06402051770529615,
+                "414": -0.05627400761541179,
+                "424": -0.12678853217589625,
+                "434": 0.048375647048361614
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.8494154120249408,
+              "aggregate_token_ratio": 0.8333333333333334,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c4",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4",
+                "q434-c8"
+              ]
+            }
+          }
+        },
+        "natural": {
+          "methods": {
+            "expert_cache_dynamic": {
+              "tokens_per_second": 9.498658609668587,
+              "mean_cycle_ms": 394.79258641666667,
+              "mean_committed_tokens": 3.75,
+              "mean_draft_nodes": 5.416666666666667,
+              "node_count_distribution": {
+                "3": 1,
+                "4": 3,
+                "6": 6,
+                "7": 2
+              },
+              "mean_selector_ms": 4.627351138888889,
+              "selector_fraction": 0.01172096766276445,
+              "expert_proxy_mean_absolute_relative_error": 0.0021029771273584816,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.25,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.049414286536204916,
+                "cache": 0.015833186977875464
+              },
+              "utility_mean_absolute_token_error": 0.9653725941503687,
+              "mean_proposal_ms": 57.941642305555554,
+              "mean_verification_cuda_ms": 332.9031101111111,
+              "mean_h2d_submissions": 306.0833333333333,
+              "min_cycle_ms": 319.989706,
+              "max_cycle_ms": 477.148212,
+              "median_cycle_ms": 393.3757745,
+              "differing_choices_vs_probability_dynamic": 8,
+              "gain_vs_target_only": 0.5615249766118908,
+              "gain_vs_probability_fixed": -0.05771665833670314
+            },
+            "expert_calibrated_dynamic": {
+              "tokens_per_second": 9.819609833816333,
+              "mean_cycle_ms": 390.37532022222223,
+              "mean_committed_tokens": 3.8333333333333335,
+              "mean_draft_nodes": 5.75,
+              "node_count_distribution": {
+                "3": 1,
+                "4": 1,
+                "6": 8,
+                "7": 2
+              },
+              "mean_selector_ms": 4.726244277777778,
+              "selector_fraction": 0.012106923857500392,
+              "expert_proxy_mean_absolute_relative_error": 0.0027477927928163024,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.5833333333333335,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.04827233830958944,
+                "cache": 0.01573591163192072
+              },
+              "utility_mean_absolute_token_error": 0.8135457429237026,
+              "mean_proposal_ms": 57.65641825,
+              "mean_verification_cuda_ms": 328.5694868055556,
+              "mean_h2d_submissions": 303.25,
+              "min_cycle_ms": 322.901482,
+              "max_cycle_ms": 476.065762,
+              "median_cycle_ms": 396.225404,
+              "differing_choices_vs_probability_dynamic": 10,
+              "gain_vs_target_only": 0.6142875163952166,
+              "gain_vs_probability_fixed": -0.025877742503574108
+            },
+            "expert_cost_dynamic": {
+              "tokens_per_second": 9.253153545583501,
+              "mean_cycle_ms": 405.2672401388889,
+              "mean_committed_tokens": 3.75,
+              "mean_draft_nodes": 5.5,
+              "node_count_distribution": {
+                "3": 1,
+                "4": 3,
+                "6": 5,
+                "7": 3
+              },
+              "mean_selector_ms": 3.5254356944444445,
+              "selector_fraction": 0.008699039412206731,
+              "expert_proxy_mean_absolute_relative_error": 0.002090649805915723,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.1666666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.05833718893642619,
+                "cache": 0.03203527120253331
+              },
+              "utility_mean_absolute_token_error": 0.987955788670579,
+              "mean_proposal_ms": 57.829849805555554,
+              "mean_verification_cuda_ms": 343.36602941666666,
+              "mean_h2d_submissions": 309.0833333333333,
+              "min_cycle_ms": 317.506781,
+              "max_cycle_ms": 671.704231,
+              "median_cycle_ms": 398.9615725,
+              "differing_choices_vs_probability_dynamic": 8,
+              "gain_vs_target_only": 0.5211653526684277,
+              "gain_vs_probability_fixed": -0.08207118476908615
+            },
+            "expert_cost_fixed": {
+              "tokens_per_second": 9.23559509855401,
+              "mean_cycle_ms": 415.0607830277778,
+              "mean_committed_tokens": 3.8333333333333335,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 12
+              },
+              "mean_selector_ms": 2.6928905,
+              "selector_fraction": 0.006487942513758954,
+              "expert_proxy_mean_absolute_relative_error": 0.0032608185958594347,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.9166666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.0466867672299121,
+                "cache": 0.015012953076329058
+              },
+              "utility_mean_absolute_token_error": 0.9718570289958669,
+              "mean_proposal_ms": 55.74426813888889,
+              "mean_verification_cuda_ms": 355.1514163055556,
+              "mean_h2d_submissions": 340.3333333333333,
+              "min_cycle_ms": 354.616819,
+              "max_cycle_ms": 493.713761,
+              "median_cycle_ms": 413.8706,
+              "differing_choices_vs_probability_dynamic": 12,
+              "gain_vs_target_only": 0.5182788447188567,
+              "gain_vs_probability_fixed": -0.08381301304413613
+            },
+            "expert_fast_dynamic": {
+              "tokens_per_second": 9.502906243407121,
+              "mean_cycle_ms": 394.616121,
+              "mean_committed_tokens": 3.75,
+              "mean_draft_nodes": 5.5,
+              "node_count_distribution": {
+                "3": 1,
+                "4": 3,
+                "6": 5,
+                "7": 3
+              },
+              "mean_selector_ms": 2.794147388888889,
+              "selector_fraction": 0.007080672177832514,
+              "expert_proxy_mean_absolute_relative_error": 0.002090649805915723,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.1666666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.048554404737120506,
+                "cache": 0.014290350055445525
+              },
+              "utility_mean_absolute_token_error": 0.987955788670579,
+              "mean_proposal_ms": 55.4753405,
+              "mean_verification_cuda_ms": 335.1883358611111,
+              "mean_h2d_submissions": 309.0833333333333,
+              "min_cycle_ms": 316.695734,
+              "max_cycle_ms": 474.21795,
+              "median_cycle_ms": 391.43854,
+              "differing_choices_vs_probability_dynamic": 8,
+              "gain_vs_target_only": 0.5622232632275894,
+              "gain_vs_probability_fixed": -0.05729528573265619
+            },
+            "expert_guarded_dynamic": {
+              "tokens_per_second": 9.409538657069282,
+              "mean_cycle_ms": 407.3880211388889,
+              "mean_committed_tokens": 3.8333333333333335,
+              "mean_draft_nodes": 5.583333333333333,
+              "node_count_distribution": {
+                "3": 1,
+                "4": 2,
+                "6": 7,
+                "7": 2
+              },
+              "mean_selector_ms": 4.870846333333333,
+              "selector_fraction": 0.011956282660733262,
+              "expert_proxy_mean_absolute_relative_error": 0.0029201471533816248,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.6666666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.06365898458531753,
+                "cache": 0.04061173465530755
+              },
+              "utility_mean_absolute_token_error": 0.8260105916807369,
+              "mean_proposal_ms": 58.012077222222224,
+              "mean_verification_cuda_ms": 345.2029401944444,
+              "mean_h2d_submissions": 301.0833333333333,
+              "min_cycle_ms": 319.269333,
+              "max_cycle_ms": 824.567025,
+              "median_cycle_ms": 388.333504,
+              "differing_choices_vs_probability_dynamic": 9,
+              "gain_vs_target_only": 0.5468741677327689,
+              "gain_vs_probability_fixed": -0.06655751157661938
+            },
+            "probability_dynamic": {
+              "tokens_per_second": 10.185194436736799,
+              "mean_cycle_ms": 400.90872675,
+              "mean_committed_tokens": 4.083333333333333,
+              "mean_draft_nodes": 5.083333333333333,
+              "node_count_distribution": {
+                "3": 1,
+                "4": 5,
+                "6": 4,
+                "7": 2
+              },
+              "mean_selector_ms": 0.5812561388888888,
+              "selector_fraction": 0.001449846561338014,
+              "expert_proxy_mean_absolute_relative_error": 0.0023143229567882027,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.8333333333333335,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.04617822923740594,
+                "cache": 0.014279420821018842
+              },
+              "utility_mean_absolute_token_error": 1.2695134989911812,
+              "mean_proposal_ms": 53.619711333333335,
+              "mean_verification_cuda_ms": 343.2715386388889,
+              "mean_h2d_submissions": 315.6666666666667,
+              "min_cycle_ms": 335.561032,
+              "max_cycle_ms": 474.998855,
+              "median_cycle_ms": 386.452012,
+              "differing_choices_vs_probability_dynamic": 0,
+              "gain_vs_target_only": 0.6743875275635267,
+              "gain_vs_probability_fixed": 0.01038888160163376
+            },
+            "probability_fixed": {
+              "tokens_per_second": 10.08046963124889,
+              "mean_cycle_ms": 446.4077731111111,
+              "mean_committed_tokens": 4.5,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 12
+              },
+              "mean_selector_ms": 0.5391719722222222,
+              "selector_fraction": 0.0012078014871125958,
+              "expert_proxy_mean_absolute_relative_error": 0.002858951252097249,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.4166666666666665,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.04031032799839989,
+                "cache": 0.015314115473417702
+              },
+              "utility_mean_absolute_token_error": 1.4397626956560114,
+              "mean_proposal_ms": 54.134508805555555,
+              "mean_verification_cuda_ms": 388.05145691666667,
+              "mean_h2d_submissions": 381.25,
+              "min_cycle_ms": 389.77603,
+              "max_cycle_ms": 504.669912,
+              "median_cycle_ms": 447.980191,
+              "differing_choices_vs_probability_dynamic": 10,
+              "gain_vs_target_only": 0.657171370402795,
+              "gain_vs_probability_fixed": 0.0
+            },
+            "target_only": {
+              "tokens_per_second": 6.082937354148662,
+              "mean_cycle_ms": 164.3942624722222,
+              "mean_committed_tokens": 1,
+              "mean_draft_nodes": 0,
+              "node_count_distribution": {
+                "0": 12
+              },
+              "mean_selector_ms": 0.0,
+              "selector_fraction": 0.0,
+              "expert_proxy_mean_absolute_relative_error": 0.0,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 0.75,
+              "cost_model_mean_absolute_relative_errors": null,
+              "utility_mean_absolute_token_error": 0,
+              "mean_proposal_ms": 0.0,
+              "mean_verification_cuda_ms": 164.20221072222222,
+              "mean_h2d_submissions": 103.75,
+              "min_cycle_ms": 153.626191,
+              "max_cycle_ms": 182.279476,
+              "median_cycle_ms": 161.5720185,
+              "differing_choices_vs_probability_dynamic": 12,
+              "gain_vs_target_only": 0.0,
+              "gain_vs_probability_fixed": -0.3965621070578005
+            }
+          },
+          "comparisons": {
+            "expert_cache_dynamic_vs_expert_fast_dynamic": {
+              "gain": -0.0004469825998211219,
+              "interval95": [
+                -0.008547791322432774,
+                0.012711860613613624
+              ],
+              "prompt_gains": {
+                "404": -0.005559060009044714,
+                "414": -0.008458021489116008,
+                "424": -0.008630642193083515,
+                "434": 0.019050211533448547
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 1.00044718248261,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": [
+                "q434-c4"
+              ]
+            },
+            "expert_cache_dynamic_vs_probability_dynamic": {
+              "gain": -0.06740527452200207,
+              "interval95": [
+                -0.10644634228631733,
+                -0.0027393632294763215
+              ],
+              "prompt_gains": {
+                "404": -0.08782166793195223,
+                "414": -0.10949451448073932,
+                "424": -0.015515843233341764,
+                "434": 0.009695003074887687
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 0.984744307306767,
+              "aggregate_token_ratio": 0.9183673469387755,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c8",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c4"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_expert_cache_dynamic": {
+              "gain": 0.03378911037196919,
+              "interval95": [
+                -0.03661720025444526,
+                0.12712726974044264
+              ],
+              "prompt_gains": {
+                "404": -0.06312252144892139,
+                "414": -0.01638052062004358,
+                "424": 0.20067608581278118,
+                "434": 0.07410769183180421
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9888111723815847,
+              "aggregate_token_ratio": 1.0222222222222221,
+              "differing_choice_states": [
+                "q404-c0",
+                "q414-c0",
+                "q414-c4",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_probability_dynamic": {
+              "gain": -0.03589372841050975,
+              "interval95": [
+                -0.1349364651899636,
+                0.12403965874277567
+              ],
+              "prompt_gains": {
+                "404": -0.145400664263159,
+                "414": -0.12408145794854952,
+                "424": 0.1820465838912877,
+                "434": 0.08452116920687391
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9737261730040957,
+              "aggregate_token_ratio": 0.9387755102040817,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4"
+              ]
+            },
+            "expert_cost_dynamic_vs_expert_cost_fixed": {
+              "gain": 0.0019011711581249369,
+              "interval95": [
+                -0.030600475668074778,
+                0.027193962828086393
+              ],
+              "prompt_gains": {
+                "404": 0.029388923859498428,
+                "414": -0.04945126817847767,
+                "424": 0.010284302498407394,
+                "434": 0.032515051558959174
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 1,
+              "aggregate_cycle_ratio": 0.9764045573820608,
+              "aggregate_token_ratio": 0.9782608695652174,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c4",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q434-c0",
+                "q434-c8"
+              ]
+            },
+            "expert_cost_dynamic_vs_probability_dynamic": {
+              "gain": -0.09150938619213156,
+              "interval95": [
+                -0.16191722957347776,
+                -0.014029167578377688
+              ],
+              "prompt_gains": {
+                "404": -0.08387931274156235,
+                "414": -0.18211371809647525,
+                "424": -0.011408282896890554,
+                "434": -0.01650336747447556
+              },
+              "positive_prompts": 0,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 1.0108715852214583,
+              "aggregate_token_ratio": 0.9183673469387755,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c8",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c4"
+              ]
+            },
+            "expert_cost_fixed_vs_probability_fixed": {
+              "gain": -0.08381301304413613,
+              "interval95": [
+                -0.1503980687434039,
+                -0.018994159290348533
+              ],
+              "prompt_gains": {
+                "404": 0.01867981216745762,
+                "414": -0.12231761289060472,
+                "424": -0.17705766108884624,
+                "434": -0.052818993870793474
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 0.9297794707630885,
+              "aggregate_token_ratio": 0.8518518518518519,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c4",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c8",
+                "q434-c0"
+              ]
+            },
+            "expert_fast_dynamic_vs_expert_cost_dynamic": {
+              "gain": 0.02699108975045883,
+              "interval95": [
+                0.00299762278724236,
+                0.07325409949981077
+              ],
+              "prompt_gains": {
+                "404": 0.0012627655680546024,
+                "414": 0.0980764299799659,
+                "424": 0.0045146451696644885,
+                "434": 0.00744592898260521
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 0,
+              "aggregate_cycle_ratio": 0.9737182824468154,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": []
+            },
+            "expert_fast_dynamic_vs_probability_dynamic": {
+              "gain": -0.066988234497394,
+              "interval95": [
+                -0.09945464022844164,
+                -0.008093279581871116
+              ],
+              "prompt_gains": {
+                "404": -0.08272246708150988,
+                "414": -0.10189835143778969,
+                "424": -0.006945142076500654,
+                "434": -0.00918032139405911
+              },
+              "positive_prompts": 0,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 0.9843041437361278,
+              "aggregate_token_ratio": 0.9183673469387755,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c8",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c4"
+              ]
+            },
+            "expert_guarded_dynamic_vs_expert_calibrated_dynamic": {
+              "gain": -0.04176043485300873,
+              "interval95": [
+                -0.07550022563892278,
+                -0.0019065684525978455
+              ],
+              "prompt_gains": {
+                "404": -0.0035995935554420377,
+                "414": -0.06283711964443806,
+                "424": -0.000384585646051816,
+                "434": -0.08667371487926179
+              },
+              "positive_prompts": 0,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 1.043580370057672,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": [
+                "q414-c0"
+              ]
+            },
+            "expert_guarded_dynamic_vs_probability_dynamic": {
+              "gain": -0.07615522555659981,
+              "interval95": [
+                -0.16567558568246898,
+                0.07087072236106584
+              ],
+              "prompt_gains": {
+                "404": -0.14847687452456237,
+                "414": -0.17912165617421827,
+                "424": 0.1815919857421584,
+                "434": -0.009478309393486262
+              },
+              "positive_prompts": 1,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 1.016161519958455,
+              "aggregate_token_ratio": 0.9387755102040817,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c8",
+                "q414-c4",
+                "q414-c8",
+                "q424-c0",
+                "q424-c4",
+                "q424-c8",
+                "q434-c0",
+                "q434-c4"
+              ]
+            },
+            "probability_dynamic_vs_probability_fixed": {
+              "gain": 0.01038888160163376,
+              "interval95": [
+                -0.08717851586287051,
+                0.10174447267594933
+              ],
+              "prompt_gains": {
+                "404": 0.14462835539990393,
+                "414": 0.020043859969436806,
+                "424": -0.1589999061497822,
+                "434": -0.005610580620078354
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.8980773877568965,
+              "aggregate_token_ratio": 0.9074074074074074,
+              "differing_choice_states": [
+                "q404-c0",
+                "q404-c4",
+                "q404-c8",
+                "q414-c0",
+                "q414-c4",
+                "q424-c0",
+                "q424-c4",
+                "q434-c0",
+                "q434-c4",
+                "q434-c8"
+              ]
+            }
+          }
+        }
+      },
+      "acceptance_exponent": 0.75
+    },
+    "holdout": {
+      "stage": "holdout",
+      "source_commit": "1886852f2e95383982dea96c8448b1621f05c0c1",
+      "combined_sha256": "a6bf2d6a3062b7872c052a8f3777099f873c37f2866f845e147ac4c1f5139765",
+      "counts": {
+        "cycles": 3456,
+        "prompts": 8,
+        "states": 32
+      },
+      "resources_gib": {
+        "max_gpu_reserved_bytes": 25.392578125,
+        "max_process_rss_bytes": 80.80233764648438
+      },
+      "by_mode": {
+        "cold": {
+          "methods": {
+            "expert_cache_dynamic": {
+              "tokens_per_second": 7.32896590146554,
+              "mean_cycle_ms": 554.307395425,
+              "mean_committed_tokens": 4.0625,
+              "mean_draft_nodes": 4.8125,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 6,
+                "5": 8,
+                "6": 1,
+                "7": 10
+              },
+              "mean_selector_ms": 3.0574405625,
+              "selector_fraction": 0.005515785262355722,
+              "expert_proxy_mean_absolute_relative_error": 0.002854531116658593,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.25,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.008832873405841924,
+                "cache": 0.008832873405841924
+              },
+              "utility_mean_absolute_token_error": 0.6680564444582034,
+              "mean_proposal_ms": 55.6788104375,
+              "mean_verification_cuda_ms": 494.71152601875,
+              "mean_h2d_submissions": 1077.25,
+              "min_cycle_ms": 273.398683,
+              "max_cycle_ms": 707.341378,
+              "median_cycle_ms": 537.414025,
+              "differing_choices_vs_probability_dynamic": 20,
+              "gain_vs_target_only": 0.5667869019372251,
+              "gain_vs_probability_fixed": 0.06645235567142538
+            },
+            "expert_calibrated_dynamic": {
+              "tokens_per_second": 7.253985002436325,
+              "mean_cycle_ms": 529.8811616937501,
+              "mean_committed_tokens": 3.84375,
+              "mean_draft_nodes": 4.65625,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 1,
+                "2": 3,
+                "3": 5,
+                "4": 5,
+                "5": 5,
+                "6": 2,
+                "7": 10
+              },
+              "mean_selector_ms": 3.09165096875,
+              "selector_fraction": 0.005834611970102175,
+              "expert_proxy_mean_absolute_relative_error": 0.002761136698658514,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.84375,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.009917088141111755,
+                "cache": 0.009917088141111755
+              },
+              "utility_mean_absolute_token_error": 0.621925165278958,
+              "mean_proposal_ms": 55.6642787125,
+              "mean_verification_cuda_ms": 470.38277015625,
+              "mean_h2d_submissions": 1015.75,
+              "min_cycle_ms": 273.595067,
+              "max_cycle_ms": 681.178529,
+              "median_cycle_ms": 520.1812975,
+              "differing_choices_vs_probability_dynamic": 22,
+              "gain_vs_target_only": 0.5507574794956553,
+              "gain_vs_probability_fixed": 0.05554173642784588
+            },
+            "expert_cost_dynamic": {
+              "tokens_per_second": 7.323525493204692,
+              "mean_cycle_ms": 554.7191723125,
+              "mean_committed_tokens": 4.0625,
+              "mean_draft_nodes": 4.8125,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 6,
+                "5": 8,
+                "6": 1,
+                "7": 10
+              },
+              "mean_selector_ms": 3.2188703624999997,
+              "selector_fraction": 0.005802702562237483,
+              "expert_proxy_mean_absolute_relative_error": 0.002854531116658593,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.25,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.00918057121683167,
+                "cache": 0.00918057121683167
+              },
+              "utility_mean_absolute_token_error": 0.6680564444582034,
+              "mean_proposal_ms": 55.70804016875,
+              "mean_verification_cuda_ms": 495.14970416874996,
+              "mean_h2d_submissions": 1077.25,
+              "min_cycle_ms": 273.631747,
+              "max_cycle_ms": 702.093259,
+              "median_cycle_ms": 536.753384,
+              "differing_choices_vs_probability_dynamic": 20,
+              "gain_vs_target_only": 0.5656238510349714,
+              "gain_vs_probability_fixed": 0.0656607110815064
+            },
+            "expert_cost_fixed": {
+              "tokens_per_second": 6.668338178197445,
+              "mean_cycle_ms": 632.6538767625001,
+              "mean_committed_tokens": 4.21875,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 32
+              },
+              "mean_selector_ms": 2.61995748125,
+              "selector_fraction": 0.004141217777178878,
+              "expert_proxy_mean_absolute_relative_error": 0.003295769958536303,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 4.28125,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.010526444228356743,
+                "cache": 0.010526444228356743
+              },
+              "utility_mean_absolute_token_error": 0.761043623400063,
+              "mean_proposal_ms": 55.162982293750005,
+              "mean_verification_cuda_ms": 573.28380028125,
+              "mean_h2d_submissions": 1270.65625,
+              "min_cycle_ms": 505.648657,
+              "max_cycle_ms": 857.677885,
+              "median_cycle_ms": 641.6311945,
+              "differing_choices_vs_probability_dynamic": 30,
+              "gain_vs_target_only": 0.42555785574039606,
+              "gain_vs_probability_fixed": -0.029676893826137363
+            },
+            "expert_fast_dynamic": {
+              "tokens_per_second": 7.316169511871951,
+              "mean_cycle_ms": 555.27691005625,
+              "mean_committed_tokens": 4.0625,
+              "mean_draft_nodes": 4.8125,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 6,
+                "5": 8,
+                "6": 1,
+                "7": 10
+              },
+              "mean_selector_ms": 2.8426670812499997,
+              "selector_fraction": 0.0051193684263983455,
+              "expert_proxy_mean_absolute_relative_error": 0.002854531116658593,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.25,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.010583049376492782,
+                "cache": 0.010583049376492782
+              },
+              "utility_mean_absolute_token_error": 0.6680564444582034,
+              "mean_proposal_ms": 55.91136165625,
+              "mean_verification_cuda_ms": 495.49240930625,
+              "mean_h2d_submissions": 1077.25,
+              "min_cycle_ms": 273.813225,
+              "max_cycle_ms": 759.126404,
+              "median_cycle_ms": 536.364963,
+              "differing_choices_vs_probability_dynamic": 20,
+              "gain_vs_target_only": 0.5640512887720295,
+              "gain_vs_probability_fixed": 0.06459032765688066
+            },
+            "expert_guarded_dynamic": {
+              "tokens_per_second": 7.276438975278052,
+              "mean_cycle_ms": 528.24602983125,
+              "mean_committed_tokens": 3.84375,
+              "mean_draft_nodes": 4.59375,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 2,
+                "2": 3,
+                "3": 4,
+                "4": 5,
+                "5": 5,
+                "6": 2,
+                "7": 10
+              },
+              "mean_selector_ms": 3.15235043125,
+              "selector_fraction": 0.0059675799783237915,
+              "expert_proxy_mean_absolute_relative_error": 0.0026229237051611683,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.71875,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.01011512659854789,
+                "cache": 0.01011512659854789
+              },
+              "utility_mean_absolute_token_error": 0.6297153836772613,
+              "mean_proposal_ms": 55.726681424999995,
+              "mean_verification_cuda_ms": 468.67318390625,
+              "mean_h2d_submissions": 1010.8125,
+              "min_cycle_ms": 274.182294,
+              "max_cycle_ms": 683.589189,
+              "median_cycle_ms": 522.8892155,
+              "differing_choices_vs_probability_dynamic": 21,
+              "gain_vs_target_only": 0.5555576915607485,
+              "gain_vs_probability_fixed": 0.058809058523921376
+            },
+            "probability_dynamic": {
+              "tokens_per_second": 7.238381721443806,
+              "mean_cycle_ms": 582.830550025,
+              "mean_committed_tokens": 4.21875,
+              "mean_draft_nodes": 4.6875,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 1,
+                "2": 4,
+                "3": 1,
+                "4": 3,
+                "5": 11,
+                "6": 6,
+                "7": 5
+              },
+              "mean_selector_ms": 0.5713225562500001,
+              "selector_fraction": 0.000980254992167953,
+              "expert_proxy_mean_absolute_relative_error": 0.003040147230402329,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.71875,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.010005072843401807,
+                "cache": 0.010005072843401807
+              },
+              "utility_mean_absolute_token_error": 0.8327691717480029,
+              "mean_proposal_ms": 53.164999643749994,
+              "mean_verification_cuda_ms": 525.7907998875,
+              "mean_h2d_submissions": 1155.59375,
+              "min_cycle_ms": 271.490665,
+              "max_cycle_ms": 749.212111,
+              "median_cycle_ms": 610.1441165,
+              "differing_choices_vs_probability_dynamic": 0,
+              "gain_vs_target_only": 0.5474218088683114,
+              "gain_vs_probability_fixed": 0.053271272082071386
+            },
+            "probability_fixed": {
+              "tokens_per_second": 6.872286288730932,
+              "mean_cycle_ms": 682.0874164812501,
+              "mean_committed_tokens": 4.6875,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 32
+              },
+              "mean_selector_ms": 0.53129055625,
+              "selector_fraction": 0.0007789185717438091,
+              "expert_proxy_mean_absolute_relative_error": 0.003917226333640663,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 5.5625,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.01164467542672212,
+                "cache": 0.01164467542672212
+              },
+              "utility_mean_absolute_token_error": 0.9060969349433681,
+              "mean_proposal_ms": 53.40838969375,
+              "mean_verification_cuda_ms": 624.46259231875,
+              "mean_h2d_submissions": 1398.625,
+              "min_cycle_ms": 519.328048,
+              "max_cycle_ms": 1068.35236,
+              "median_cycle_ms": 677.402175,
+              "differing_choices_vs_probability_dynamic": 27,
+              "gain_vs_target_only": 0.46915789871437386,
+              "gain_vs_probability_fixed": 0.0
+            },
+            "target_only": {
+              "tokens_per_second": 4.677704346649677,
+              "mean_cycle_ms": 213.78007798124997,
+              "mean_committed_tokens": 1,
+              "mean_draft_nodes": 0,
+              "node_count_distribution": {
+                "0": 32
+              },
+              "mean_selector_ms": 0.0,
+              "selector_fraction": 0.0,
+              "expert_proxy_mean_absolute_relative_error": 0.0,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 0,
+              "cost_model_mean_absolute_relative_errors": null,
+              "utility_mean_absolute_token_error": 0,
+              "mean_proposal_ms": 0.0,
+              "mean_verification_cuda_ms": 213.59354231875,
+              "mean_h2d_submissions": 384.0,
+              "min_cycle_ms": 210.426024,
+              "max_cycle_ms": 219.430438,
+              "median_cycle_ms": 213.179477,
+              "differing_choices_vs_probability_dynamic": 31,
+              "gain_vs_target_only": 0.0,
+              "gain_vs_probability_fixed": -0.31933796845452966
+            }
+          },
+          "comparisons": {
+            "expert_cache_dynamic_vs_expert_fast_dynamic": {
+              "gain": 0.0017490559196071676,
+              "interval95": [
+                -0.0008345319410551277,
+                0.006469910452146354
+              ],
+              "prompt_gains": {
+                "409": 0.017608580900436488,
+                "419": 0.00047167539684167537,
+                "429": -0.0010041590962530655,
+                "439": 2.6148348343024708e-05,
+                "449": -0.001431084400866256,
+                "459": -0.00045273772285803204,
+                "469": -0.0005973810486759046,
+                "479": -0.000820986508473287
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 5,
+              "aggregate_cycle_ratio": 0.9982539979356393,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": []
+            },
+            "expert_cache_dynamic_vs_probability_dynamic": {
+              "gain": 0.012514424288149417,
+              "interval95": [
+                -0.028558768065614748,
+                0.05806774249236102
+              ],
+              "prompt_gains": {
+                "409": 0.0784144811063443,
+                "419": -0.015050334862627746,
+                "429": 0.03750717881268062,
+                "439": 0.11164070121539305,
+                "449": -0.058507497278273646,
+                "459": -0.0644066589067519,
+                "469": -0.01772676875658552,
+                "479": 0.06705113932794715
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 0.9510609823064756,
+              "aggregate_token_ratio": 0.9629629629629629,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q449-c0",
+                "q449-c4",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_expert_cache_dynamic": {
+              "gain": -0.01023076107015608,
+              "interval95": [
+                -0.03832637843998743,
+                0.024092176058945352
+              ],
+              "prompt_gains": {
+                "409": -0.03323987828392627,
+                "419": -0.05217761295655654,
+                "429": -0.0365986942641463,
+                "439": -0.0054036447993262016,
+                "449": 0.08507020142922372,
+                "459": -0.007831307527931486,
+                "469": 0.03250240285612849,
+                "479": -0.03929964999893387
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9559337762172164,
+              "aggregate_token_ratio": 0.9461538461538461,
+              "differing_choice_states": [
+                "q409-c0",
+                "q419-c8",
+                "q429-c4",
+                "q439-c0",
+                "q449-c4",
+                "q459-c8",
+                "q469-c0",
+                "q469-c4",
+                "q479-c0"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_probability_dynamic": {
+              "gain": 0.0021556311331707434,
+              "interval95": [
+                -0.037313074705840193,
+                0.045989445437812915
+              ],
+              "prompt_gains": {
+                "409": 0.04256811501474589,
+                "419": -0.0664426572718555,
+                "429": -0.0004642292215416566,
+                "439": 0.10563378972155113,
+                "449": 0.021585459572367682,
+                "459": -0.07173357808193803,
+                "469": 0.014199471520079054,
+                "479": 0.025116403021395284
+              },
+              "positive_prompts": 5,
+              "negative_prompts": 3,
+              "aggregate_cycle_ratio": 0.9091513162290845,
+              "aggregate_token_ratio": 0.9111111111111111,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c8",
+                "q419-c12",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q449-c0",
+                "q449-c4",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4"
+              ]
+            },
+            "expert_cost_dynamic_vs_expert_cost_fixed": {
+              "gain": 0.09825346248176547,
+              "interval95": [
+                0.06054521057831197,
+                0.14636283124620353
+              ],
+              "prompt_gains": {
+                "409": 0.11522410994742893,
+                "419": 0.05286971757741199,
+                "429": 0.2327227687159068,
+                "439": 0.08314326887003465,
+                "449": 0.02893994820657686,
+                "459": 0.1046190781009455,
+                "469": 0.041979235617313204,
+                "479": 0.131155417276404
+              },
+              "positive_prompts": 8,
+              "negative_prompts": 0,
+              "aggregate_cycle_ratio": 0.8768130453118886,
+              "aggregate_token_ratio": 0.9629629629629629,
+              "differing_choice_states": [
+                "q409-c8",
+                "q409-c12",
+                "q419-c4",
+                "q419-c8",
+                "q419-c12",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c8",
+                "q439-c12",
+                "q449-c8",
+                "q459-c4",
+                "q459-c8",
+                "q469-c0",
+                "q469-c8",
+                "q469-c12",
+                "q479-c0",
+                "q479-c4",
+                "q479-c8",
+                "q479-c12"
+              ]
+            },
+            "expert_cost_dynamic_vs_probability_dynamic": {
+              "gain": 0.011762818684823761,
+              "interval95": [
+                -0.028864920684317272,
+                0.05653400742689273
+              ],
+              "prompt_gains": {
+                "409": 0.07573808188236875,
+                "419": -0.015083401457317902,
+                "429": 0.03575065587016435,
+                "439": 0.10928719648079266,
+                "449": -0.05767043483223444,
+                "459": -0.06474713938523236,
+                "469": -0.018705432372528863,
+                "479": 0.06763811928606889
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 0.9517674944951081,
+              "aggregate_token_ratio": 0.9629629629629629,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q449-c0",
+                "q449-c4",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4"
+              ]
+            },
+            "expert_cost_fixed_vs_probability_fixed": {
+              "gain": -0.029676893826137363,
+              "interval95": [
+                -0.06569153140381195,
+                0.0060224548158672305
+              ],
+              "prompt_gains": {
+                "409": -0.10960001483935089,
+                "419": -0.004894437743787838,
+                "429": 0.06161290510809603,
+                "439": -0.09089906042775708,
+                "449": -0.017796718407760426,
+                "459": -0.03028545800045468,
+                "469": 0.030416729980401902,
+                "479": -0.04190856949877009
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.927526093394645,
+              "aggregate_token_ratio": 0.9,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q409-c12",
+                "q419-c4",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q439-c12",
+                "q449-c0",
+                "q449-c8",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c8",
+                "q469-c12",
+                "q479-c0",
+                "q479-c8",
+                "q479-c12"
+              ]
+            },
+            "expert_fast_dynamic_vs_expert_cost_dynamic": {
+              "gain": -0.001004431723432453,
+              "interval95": [
+                -0.005165363308573645,
+                0.0015503305591351476
+              ],
+              "prompt_gains": {
+                "409": -0.01485897003451131,
+                "419": -0.00043789586256681723,
+                "429": 0.0027027667369128316,
+                "439": 0.002095433836914351,
+                "449": 0.0005435717497059844,
+                "459": 0.0008171594722803377,
+                "469": 0.001595653158760646,
+                "479": 0.0002714163436192685
+              },
+              "positive_prompts": 6,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 1.0010054416208924,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": []
+            },
+            "expert_fast_dynamic_vs_probability_dynamic": {
+              "gain": 0.010746572013147215,
+              "interval95": [
+                -0.028794936808464743,
+                0.05467447853396057
+              ],
+              "prompt_gains": {
+                "409": 0.05975372195869588,
+                "419": -0.01551469236079317,
+                "429": 0.03855004829058584,
+                "439": 0.11161163440715427,
+                "449": -0.05715821110169639,
+                "459": -0.06398288865120372,
+                "469": -0.01713962659601942,
+                "479": 0.06792789372071417
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 0.952724441147486,
+              "aggregate_token_ratio": 0.9629629629629629,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q449-c0",
+                "q449-c4",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4"
+              ]
+            },
+            "expert_guarded_dynamic_vs_expert_calibrated_dynamic": {
+              "gain": 0.0030953982995809426,
+              "interval95": [
+                -0.0013702108674956276,
+                0.011679377571336694
+              ],
+              "prompt_gains": {
+                "409": -0.001715781407216288,
+                "419": 4.627190490769095e-06,
+                "429": 0.036514759561585564,
+                "439": -0.0016495565432381731,
+                "449": -0.0012522168402722134,
+                "459": -0.0022479936182543403,
+                "469": 0.0015171423727391442,
+                "479": -2.7434704266582344e-05
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 5,
+              "aggregate_cycle_ratio": 0.996914153624044,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": [
+                "q429-c4"
+              ]
+            },
+            "expert_guarded_dynamic_vs_probability_dynamic": {
+              "gain": 0.005257701969695772,
+              "interval95": [
+                -0.033824253546293565,
+                0.0486853454634757
+              ],
+              "prompt_gains": {
+                "409": 0.04077929602724706,
+                "419": -0.0664383375241967,
+                "429": 0.03603357912163796,
+                "439": 0.10380998426929078,
+                "449": 0.020306213056113798,
+                "459": -0.07382031507444964,
+                "469": 0.015738156512731916,
+                "479": 0.025088279256039403
+              },
+              "positive_prompts": 6,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9063458149347033,
+              "aggregate_token_ratio": 0.9111111111111111,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c8",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q449-c0",
+                "q449-c4",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4"
+              ]
+            },
+            "probability_dynamic_vs_probability_fixed": {
+              "gain": 0.053271272082071386,
+              "interval95": [
+                -0.02262194065002074,
+                0.13551737350083298
+              ],
+              "prompt_gains": {
+                "409": -0.07691700454593353,
+                "419": 0.06376165641095777,
+                "429": 0.263503327053106,
+                "439": -0.1123249537675981,
+                "449": 0.07247849483521596,
+                "459": 0.145321472420316,
+                "469": 0.09413918316917558,
+                "479": 0.015091436208994446
+              },
+              "positive_prompts": 6,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.8544807248192673,
+              "aggregate_token_ratio": 0.9,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c8",
+                "q409-c12",
+                "q419-c4",
+                "q419-c8",
+                "q419-c12",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c12",
+                "q449-c0",
+                "q449-c4",
+                "q449-c8",
+                "q449-c12",
+                "q459-c4",
+                "q459-c8",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q469-c12",
+                "q479-c0",
+                "q479-c4",
+                "q479-c8",
+                "q479-c12"
+              ]
+            }
+          }
+        },
+        "natural": {
+          "methods": {
+            "expert_cache_dynamic": {
+              "tokens_per_second": 10.441778878637896,
+              "mean_cycle_ms": 389.06205994375,
+              "mean_committed_tokens": 4.0625,
+              "mean_draft_nodes": 5.28125,
+              "node_count_distribution": {
+                "0": 1,
+                "1": 1,
+                "2": 1,
+                "3": 3,
+                "4": 4,
+                "5": 4,
+                "6": 5,
+                "7": 13
+              },
+              "mean_selector_ms": 4.6332871749999995,
+              "selector_fraction": 0.01190886404001941,
+              "expert_proxy_mean_absolute_relative_error": 0.0033591265322563506,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.6875,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.04291479833878034,
+                "cache": 0.021653221121994734
+              },
+              "utility_mean_absolute_token_error": 0.6714765625204664,
+              "mean_proposal_ms": 57.1526951625,
+              "mean_verification_cuda_ms": 327.9560576125,
+              "mean_h2d_submissions": 310.15625,
+              "min_cycle_ms": 232.564308,
+              "max_cycle_ms": 452.955826,
+              "median_cycle_ms": 395.1693755,
+              "differing_choices_vs_probability_dynamic": 24,
+              "gain_vs_target_only": 0.69020604006172,
+              "gain_vs_probability_fixed": 0.00460510271337089
+            },
+            "expert_calibrated_dynamic": {
+              "tokens_per_second": 10.28452580198245,
+              "mean_cycle_ms": 388.9338290375,
+              "mean_committed_tokens": 4,
+              "mean_draft_nodes": 5.34375,
+              "node_count_distribution": {
+                "2": 1,
+                "3": 6,
+                "4": 5,
+                "5": 2,
+                "6": 5,
+                "7": 13
+              },
+              "mean_selector_ms": 4.6967123125,
+              "selector_fraction": 0.012075864740598727,
+              "expert_proxy_mean_absolute_relative_error": 0.002964814284782357,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.625,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.04526242816219411,
+                "cache": 0.025121651533073674
+              },
+              "utility_mean_absolute_token_error": 0.7278718992814798,
+              "mean_proposal_ms": 57.42948045625,
+              "mean_verification_cuda_ms": 327.504000325,
+              "mean_h2d_submissions": 310.15625,
+              "min_cycle_ms": 314.188339,
+              "max_cycle_ms": 776.161808,
+              "median_cycle_ms": 390.566587,
+              "differing_choices_vs_probability_dynamic": 27,
+              "gain_vs_target_only": 0.6647515554312244,
+              "gain_vs_probability_fixed": -0.010524239237034938
+            },
+            "expert_cost_dynamic": {
+              "tokens_per_second": 10.292802798696366,
+              "mean_cycle_ms": 397.72937265625,
+              "mean_committed_tokens": 4.09375,
+              "mean_draft_nodes": 5.46875,
+              "node_count_distribution": {
+                "1": 1,
+                "2": 2,
+                "3": 1,
+                "4": 5,
+                "5": 5,
+                "6": 4,
+                "7": 14
+              },
+              "mean_selector_ms": 3.2386312375,
+              "selector_fraction": 0.008142801261749124,
+              "expert_proxy_mean_absolute_relative_error": 0.0032080950587967012,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.34375,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.041278086683275234,
+                "cache": 0.021163664489009814
+              },
+              "utility_mean_absolute_token_error": 0.7343099214493566,
+              "mean_proposal_ms": 55.974279518749995,
+              "mean_verification_cuda_ms": 337.79696632499997,
+              "mean_h2d_submissions": 330.5625,
+              "min_cycle_ms": 283.861682,
+              "max_cycle_ms": 471.236817,
+              "median_cycle_ms": 400.767276,
+              "differing_choices_vs_probability_dynamic": 21,
+              "gain_vs_target_only": 0.6660913491581393,
+              "gain_vs_probability_fixed": -0.009727908149144038
+            },
+            "expert_cost_fixed": {
+              "tokens_per_second": 9.871073359533407,
+              "mean_cycle_ms": 427.3851329375,
+              "mean_committed_tokens": 4.21875,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 32
+              },
+              "mean_selector_ms": 2.6642172625000002,
+              "selector_fraction": 0.006233762143732805,
+              "expert_proxy_mean_absolute_relative_error": 0.003434505879090114,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.5625,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.035811059093300374,
+                "cache": 0.015895706485913215
+              },
+              "utility_mean_absolute_token_error": 0.7680398624896794,
+              "mean_proposal_ms": 55.160066425,
+              "mean_verification_cuda_ms": 367.99784374374997,
+              "mean_h2d_submissions": 381.875,
+              "min_cycle_ms": 372.822219,
+              "max_cycle_ms": 490.978269,
+              "median_cycle_ms": 427.8993985,
+              "differing_choices_vs_probability_dynamic": 28,
+              "gain_vs_target_only": 0.5978261949511905,
+              "gain_vs_probability_fixed": -0.050302560368060245
+            },
+            "expert_fast_dynamic": {
+              "tokens_per_second": 10.299974107579136,
+              "mean_cycle_ms": 397.4524554375,
+              "mean_committed_tokens": 4.09375,
+              "mean_draft_nodes": 5.46875,
+              "node_count_distribution": {
+                "1": 1,
+                "2": 2,
+                "3": 1,
+                "4": 5,
+                "5": 5,
+                "6": 4,
+                "7": 14
+              },
+              "mean_selector_ms": 2.75351700625,
+              "selector_fraction": 0.006927915448953604,
+              "expert_proxy_mean_absolute_relative_error": 0.0032080950587967012,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.34375,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.040459537586933894,
+                "cache": 0.021132197925691928
+              },
+              "utility_mean_absolute_token_error": 0.7343099214493566,
+              "mean_proposal_ms": 55.529619450000006,
+              "mean_verification_cuda_ms": 337.94753133125,
+              "mean_h2d_submissions": 330.5625,
+              "min_cycle_ms": 285.05442,
+              "max_cycle_ms": 482.285587,
+              "median_cycle_ms": 399.8733785,
+              "differing_choices_vs_probability_dynamic": 21,
+              "gain_vs_target_only": 0.6672521656942567,
+              "gain_vs_probability_fixed": -0.009037955452338431
+            },
+            "expert_guarded_dynamic": {
+              "tokens_per_second": 10.426229552213456,
+              "mean_cycle_ms": 386.64504553750004,
+              "mean_committed_tokens": 4.03125,
+              "mean_draft_nodes": 5.28125,
+              "node_count_distribution": {
+                "2": 1,
+                "3": 6,
+                "4": 4,
+                "5": 5,
+                "6": 4,
+                "7": 12
+              },
+              "mean_selector_ms": 4.73409570625,
+              "selector_fraction": 0.012244035610669293,
+              "expert_proxy_mean_absolute_relative_error": 0.0030474850949548105,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 2.71875,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.04410176459136025,
+                "cache": 0.02376707633017703
+              },
+              "utility_mean_absolute_token_error": 0.7482970491053623,
+              "mean_proposal_ms": 57.13816286875,
+              "mean_verification_cuda_ms": 325.54673233125,
+              "mean_h2d_submissions": 310.09375,
+              "min_cycle_ms": 312.713181,
+              "max_cycle_ms": 443.865465,
+              "median_cycle_ms": 390.5186775,
+              "differing_choices_vs_probability_dynamic": 23,
+              "gain_vs_target_only": 0.6876890776028379,
+              "gain_vs_probability_fixed": 0.0031090996997746867
+            },
+            "probability_dynamic": {
+              "tokens_per_second": 10.777162245589084,
+              "mean_cycle_ms": 414.64996983125,
+              "mean_committed_tokens": 4.46875,
+              "mean_draft_nodes": 5.46875,
+              "node_count_distribution": {
+                "1": 1,
+                "3": 3,
+                "4": 4,
+                "5": 5,
+                "6": 9,
+                "7": 10
+              },
+              "mean_selector_ms": 0.575302025,
+              "selector_fraction": 0.0013874401708846875,
+              "expert_proxy_mean_absolute_relative_error": 0.003169644238172512,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 3.21875,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.041930255694837326,
+                "cache": 0.02594629456955872
+              },
+              "utility_mean_absolute_token_error": 0.850510432959842,
+              "mean_proposal_ms": 53.253407275,
+              "mean_verification_cuda_ms": 357.45272315,
+              "mean_h2d_submissions": 369.46875,
+              "min_cycle_ms": 276.242202,
+              "max_cycle_ms": 511.618273,
+              "median_cycle_ms": 420.5805375,
+              "differing_choices_vs_probability_dynamic": 0,
+              "gain_vs_target_only": 0.7444943944834792,
+              "gain_vs_probability_fixed": 0.03687238645116886
+            },
+            "probability_fixed": {
+              "tokens_per_second": 10.393913837820804,
+              "mean_cycle_ms": 450.985073875,
+              "mean_committed_tokens": 4.6875,
+              "mean_draft_nodes": 7,
+              "node_count_distribution": {
+                "7": 32
+              },
+              "mean_selector_ms": 0.5233343125,
+              "selector_fraction": 0.0011604249072000399,
+              "expert_proxy_mean_absolute_relative_error": 0.003917226333640663,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 4,
+              "cost_model_mean_absolute_relative_errors": {
+                "legacy": 0.03463394175856177,
+                "cache": 0.02109497267185034
+              },
+              "utility_mean_absolute_token_error": 0.9060969349433681,
+              "mean_proposal_ms": 52.967414424999994,
+              "mean_verification_cuda_ms": 393.86339129375,
+              "mean_h2d_submissions": 434.21875,
+              "min_cycle_ms": 382.286041,
+              "max_cycle_ms": 529.759615,
+              "median_cycle_ms": 446.96119,
+              "differing_choices_vs_probability_dynamic": 22,
+              "gain_vs_target_only": 0.6824581474816194,
+              "gain_vs_probability_fixed": 0.0
+            },
+            "target_only": {
+              "tokens_per_second": 6.177814202022732,
+              "mean_cycle_ms": 161.8695492125,
+              "mean_committed_tokens": 1,
+              "mean_draft_nodes": 0,
+              "node_count_distribution": {
+                "0": 32
+              },
+              "mean_selector_ms": 0.0,
+              "selector_fraction": 0.0,
+              "expert_proxy_mean_absolute_relative_error": 0.0,
+              "initial_missing_vs_actual_h2d_mean_absolute_count_error": 1,
+              "cost_model_mean_absolute_relative_errors": null,
+              "utility_mean_absolute_token_error": 0,
+              "mean_proposal_ms": 0.0,
+              "mean_verification_cuda_ms": 161.68223326875002,
+              "mean_h2d_submissions": 86.65625,
+              "min_cycle_ms": 150.410985,
+              "max_cycle_ms": 177.357045,
+              "median_cycle_ms": 160.2487525,
+              "differing_choices_vs_probability_dynamic": 32,
+              "gain_vs_target_only": 0.0,
+              "gain_vs_probability_fixed": -0.4056315745524809
+            }
+          },
+          "comparisons": {
+            "expert_cache_dynamic_vs_expert_fast_dynamic": {
+              "gain": 0.013767488109937664,
+              "interval95": [
+                -0.005136710098817665,
+                0.038462448753898745
+              ],
+              "prompt_gains": {
+                "409": -0.015763832136490685,
+                "419": 0.0006677454109758063,
+                "429": 0.07124547824498317,
+                "439": 0.012365109065443747,
+                "449": -0.00473745084013566,
+                "459": -0.0017163468221692568,
+                "469": -0.0016126120096313645,
+                "479": 0.07228287057586447
+              },
+              "positive_prompts": 4,
+              "negative_prompts": 4,
+              "aggregate_cycle_ratio": 0.9788895618105714,
+              "aggregate_token_ratio": 0.9923664122137404,
+              "differing_choice_states": [
+                "q409-c4",
+                "q409-c8",
+                "q419-c12",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q479-c0",
+                "q479-c4"
+              ]
+            },
+            "expert_cache_dynamic_vs_probability_dynamic": {
+              "gain": -0.031119821647711987,
+              "interval95": [
+                -0.07036801941057463,
+                0.004902490825682757
+              ],
+              "prompt_gains": {
+                "409": -0.0028835970689817803,
+                "419": -0.009759156332819097,
+                "429": 0.013063066767341924,
+                "439": -0.12373106825349289,
+                "449": -0.09564654880407075,
+                "459": -0.07479916771745398,
+                "469": 0.02340966587489235,
+                "479": 0.01458932349430686
+              },
+              "positive_prompts": 3,
+              "negative_prompts": 5,
+              "aggregate_cycle_ratio": 0.9382903370331523,
+              "aggregate_token_ratio": 0.9090909090909091,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q439-c12",
+                "q449-c0",
+                "q449-c4",
+                "q449-c8",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4",
+                "q479-c8"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_expert_cache_dynamic": {
+              "gain": -0.015059989153491715,
+              "interval95": [
+                -0.046109794281679606,
+                0.014532574404114706
+              ],
+              "prompt_gains": {
+                "409": 0.0045456928592295665,
+                "419": -0.02642202027766205,
+                "429": -0.10033969361341954,
+                "439": -0.0019414769596750592,
+                "449": -0.0009861969172096918,
+                "459": 0.061748476483334924,
+                "469": -0.0030758717852614748,
+                "479": -0.049290048762622996
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9996704101492997,
+              "aggregate_token_ratio": 0.9846153846153847,
+              "differing_choice_states": [
+                "q409-c4",
+                "q419-c8",
+                "q429-c4",
+                "q429-c12",
+                "q459-c4",
+                "q469-c0",
+                "q469-c4",
+                "q479-c0",
+                "q479-c8"
+              ]
+            },
+            "expert_calibrated_dynamic_vs_probability_dynamic": {
+              "gain": -0.045711146624730525,
+              "interval95": [
+                -0.0803830860561841,
+                -0.014862458966046543
+              ],
+              "prompt_gains": {
+                "409": 0.0016489878436423133,
+                "419": -0.035923319983962476,
+                "429": -0.08858737096316427,
+                "439": -0.12543232419495776,
+                "449": -0.09653841938970809,
+                "459": -0.01766942588289333,
+                "469": 0.02026178895886388,
+                "479": -0.03541983373476432
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9379810860610561,
+              "aggregate_token_ratio": 0.8951048951048951,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q419-c4",
+                "q419-c8",
+                "q419-c12",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q439-c12",
+                "q449-c0",
+                "q449-c4",
+                "q449-c8",
+                "q449-c12",
+                "q459-c4",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4",
+                "q479-c8"
+              ]
+            },
+            "expert_cost_dynamic_vs_expert_cost_fixed": {
+              "gain": 0.042723767092223586,
+              "interval95": [
+                0.020833819666164304,
+                0.06718298996926451
+              ],
+              "prompt_gains": {
+                "409": 0.06125189083272775,
+                "419": 0.03983188670434923,
+                "429": 0.08756542468253903,
+                "439": 0.05470312235330166,
+                "449": 0.0031762271224475835,
+                "459": -0.001410345278664682,
+                "469": 0.02664342545884235,
+                "479": 0.03323237283573044
+              },
+              "positive_prompts": 7,
+              "negative_prompts": 1,
+              "aggregate_cycle_ratio": 0.9306111560843957,
+              "aggregate_token_ratio": 0.9703703703703703,
+              "differing_choice_states": [
+                "q409-c8",
+                "q409-c12",
+                "q419-c4",
+                "q419-c8",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c8",
+                "q439-c12",
+                "q449-c8",
+                "q459-c8",
+                "q469-c8",
+                "q469-c12",
+                "q479-c0",
+                "q479-c8",
+                "q479-c12"
+              ]
+            },
+            "expert_cost_dynamic_vs_probability_dynamic": {
+              "gain": -0.044943133995311135,
+              "interval95": [
+                -0.08281981464304533,
+                -0.01024511346961925
+              ],
+              "prompt_gains": {
+                "409": 0.01315416471461539,
+                "419": -0.011007028528943197,
+                "429": -0.05457342744000926,
+                "439": -0.13673775884955874,
+                "449": -0.09238432701364263,
+                "459": -0.07493934824810766,
+                "469": 0.02699366638186862,
+                "479": -0.05464100349452772
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9591930582271929,
+              "aggregate_token_ratio": 0.916083916083916,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q429-c12",
+                "q439-c4",
+                "q439-c8",
+                "q439-c12",
+                "q449-c0",
+                "q449-c4",
+                "q449-c8",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c8"
+              ]
+            },
+            "expert_cost_fixed_vs_probability_fixed": {
+              "gain": -0.050302560368060245,
+              "interval95": [
+                -0.08781194765360134,
+                -0.012168255108760951
+              ],
+              "prompt_gains": {
+                "409": -0.1281956658809198,
+                "419": -0.018719374631975594,
+                "429": 0.05128715906917325,
+                "439": -0.1164402475696602,
+                "449": -0.026957362073908864,
+                "459": -0.0761462765212767,
+                "469": 0.002692178942657497,
+                "479": -0.055570591045977946
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9476702394278326,
+              "aggregate_token_ratio": 0.9,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q409-c8",
+                "q409-c12",
+                "q419-c4",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q439-c12",
+                "q449-c0",
+                "q449-c8",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c8",
+                "q469-c12",
+                "q479-c0",
+                "q479-c8",
+                "q479-c12"
+              ]
+            },
+            "expert_fast_dynamic_vs_expert_cost_dynamic": {
+              "gain": 0.0006967304263982843,
+              "interval95": [
+                -0.00023788855469457354,
+                0.0015495035014254643
+              ],
+              "prompt_gains": {
+                "409": -6.675766081365442e-05,
+                "419": 0.0005936186320714132,
+                "429": 0.00027560261230075156,
+                "439": 0.0026687964601177505,
+                "449": 0.0011486157339402059,
+                "459": 0.001871094853328259,
+                "469": -0.0018802181150229247,
+                "479": 0.0008849480591179848
+              },
+              "positive_prompts": 6,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9993037546689082,
+              "aggregate_token_ratio": 1.0,
+              "differing_choice_states": []
+            },
+            "expert_fast_dynamic_vs_probability_dynamic": {
+              "gain": -0.044277716817825,
+              "interval95": [
+                -0.08154784795015013,
+                -0.01032516298015107
+              ],
+              "prompt_gains": {
+                "409": 0.013086528912535478,
+                "419": -0.010419943874090176,
+                "429": -0.05431286540687308,
+                "439": -0.13443388763622321,
+                "449": -0.09134182537127977,
+                "459": -0.07320847202359837,
+                "469": 0.025062694286323683,
+                "479": -0.053804409885400584
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9585252245387866,
+              "aggregate_token_ratio": 0.916083916083916,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c8",
+                "q429-c12",
+                "q439-c4",
+                "q439-c8",
+                "q439-c12",
+                "q449-c0",
+                "q449-c4",
+                "q449-c8",
+                "q449-c12",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c8"
+              ]
+            },
+            "expert_guarded_dynamic_vs_expert_calibrated_dynamic": {
+              "gain": 0.01377834554157964,
+              "interval95": [
+                0.0029130286267768923,
+                0.02567270040317715
+              ],
+              "prompt_gains": {
+                "409": 0.006347724501639895,
+                "419": 0.026601928013159304,
+                "429": -0.001464911802577018,
+                "439": 0.011682563336508744,
+                "449": 0.0101560488442205,
+                "459": 0.002796413273196352,
+                "469": 0.04676469402536498,
+                "479": -0.00417339056700472
+              },
+              "positive_prompts": 6,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9941152367597744,
+              "aggregate_token_ratio": 1.0078125,
+              "differing_choice_states": [
+                "q409-c8",
+                "q419-c8",
+                "q439-c12",
+                "q449-c4"
+              ]
+            },
+            "expert_guarded_dynamic_vs_probability_dynamic": {
+              "gain": -0.03256262505644825,
+              "interval95": [
+                -0.07131985003433472,
+                0.005055188907523427
+              ],
+              "prompt_gains": {
+                "409": 0.008007179665820097,
+                "419": -0.010277021543010356,
+                "429": -0.08992251008045815,
+                "439": -0.11521513193030208,
+                "449": -0.08736281944815338,
+                "459": -0.014922423626765768,
+                "469": 0.06797401934529668,
+                "479": -0.0394454035017755
+              },
+              "positive_prompts": 2,
+              "negative_prompts": 6,
+              "aggregate_cycle_ratio": 0.9324612894457771,
+              "aggregate_token_ratio": 0.9020979020979021,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c4",
+                "q419-c4",
+                "q419-c12",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c8",
+                "q449-c0",
+                "q449-c8",
+                "q449-c12",
+                "q459-c4",
+                "q459-c8",
+                "q459-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c8",
+                "q479-c0",
+                "q479-c4",
+                "q479-c8"
+              ]
+            },
+            "probability_dynamic_vs_probability_fixed": {
+              "gain": 0.03687238645116886,
+              "interval95": [
+                -0.012803543567119435,
+                0.09503067102825456
+              ],
+              "prompt_gains": {
+                "409": -0.08680827632914889,
+                "419": 0.031723089543430616,
+                "429": 0.20934147484395593,
+                "439": 0.07950190017819625,
+                "449": 0.07549183139617566,
+                "459": -0.00271320697243016,
+                "469": 0.002350225680665785,
+                "479": 0.0322163779014315
+              },
+              "positive_prompts": 6,
+              "negative_prompts": 2,
+              "aggregate_cycle_ratio": 0.9194316926466151,
+              "aggregate_token_ratio": 0.9533333333333334,
+              "differing_choice_states": [
+                "q409-c0",
+                "q409-c8",
+                "q409-c12",
+                "q419-c4",
+                "q419-c8",
+                "q419-c12",
+                "q429-c0",
+                "q429-c4",
+                "q429-c8",
+                "q429-c12",
+                "q439-c0",
+                "q439-c4",
+                "q439-c12",
+                "q449-c4",
+                "q449-c8",
+                "q449-c12",
+                "q469-c0",
+                "q469-c4",
+                "q469-c12",
+                "q479-c0",
+                "q479-c8",
+                "q479-c12"
+              ]
+            }
+          }
+        }
+      },
+      "acceptance_exponent": 0.75
+    }
+  }
+}

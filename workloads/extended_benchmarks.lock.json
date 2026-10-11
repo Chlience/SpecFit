@@ -1,0 +1,42 @@
+{
+  "protocol": "specfit-evaluation-workloads-v1",
+  "datasets": {
+    "humaneval": {
+      "repository": "https://github.com/openai/human-eval",
+      "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+      "filename": "HumanEval.jsonl.gz",
+      "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/data/HumanEval.jsonl.gz",
+      "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+      "bytes": 44877,
+      "count": 164,
+      "license": "MIT",
+      "prompt_format": "complete-python-function-v1"
+    },
+    "aime25": {
+      "repository": "https://huggingface.co/datasets/math-ai/aime25",
+      "revision": "563bb8404243c5f09de6ec262f2db674fe5bce9b",
+      "filename": "test.jsonl",
+      "url": "https://huggingface.co/datasets/math-ai/aime25/resolve/563bb8404243c5f09de6ec262f2db674fe5bce9b/test.jsonl",
+      "sha256": "b4e273c02d3e7fe1b74b59eae768fc8230bfb0f79539890cb56f4361caac0331",
+      "bytes": 15813,
+      "count": 30,
+      "license": "Apache-2.0",
+      "prompt_format": "boxed-integer-v1"
+    },
+    "summarization": {
+      "repository": "https://huggingface.co/datasets/RedHatAI/speculator_benchmarks",
+      "revision": "e383d21cf8c005b0fcba4b8d27a2800a075fed0d",
+      "filename": "summarization.jsonl",
+      "url": "https://huggingface.co/datasets/RedHatAI/speculator_benchmarks/resolve/e383d21cf8c005b0fcba4b8d27a2800a075fed0d/summarization.jsonl",
+      "sha256": "e7d2945062f77aae25553f7f7531deefc358f5d0b87b9c623e6ba8ba555ff1be",
+      "bytes": 302603,
+      "count": 80,
+      "license": "Apache-2.0",
+      "source_question_ids": [
+        241,
+        320
+      ],
+      "prompt_format": "specbench-summarize-verbatim-v1"
+    }
+  }
+}

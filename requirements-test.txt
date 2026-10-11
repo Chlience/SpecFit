@@ -1,0 +1,10 @@
+# CPU unit-test environment, Python 3.12.
+# Install torch==2.10.0 separately from https://download.pytorch.org/whl/cpu.
+# GPU experiments use docker/requirements.overlay.lock and the pinned NGC base.
+pytest==9.0.2
+numpy==2.1.0
+safetensors==0.7.0
+transformers==5.6.0
+huggingface-hub==1.5.0
+accelerate==1.14.0
+speculators==0.5.0

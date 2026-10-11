@@ -1,0 +1,9 @@
+SpecFit
+Copyright 2026 SpecFit contributors
+
+This distribution contains the SpecFit experimental implementation,
+frozen run configurations, and analysis artifacts.
+
+Dependencies and externally downloaded model weights, datasets, and
+container images retain their respective licenses and terms.
+See THIRD_PARTY.md for source references.

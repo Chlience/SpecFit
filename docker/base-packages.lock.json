@@ -1,0 +1,16 @@
+{
+  "python": "3.12.3",
+  "cuda": "13.0.2.006",
+  "packages": {
+    "flash-attn": "2.7.4.post1+25.11",
+    "llvmlite": "0.45.1",
+    "numba": "0.62.1",
+    "numpy": "2.1.0",
+    "nvidia-ml-py": "13.580.82",
+    "torch": "2.10.0a0+b558c986e8.nv25.11",
+    "torch-tensorrt": "2.10.0a0",
+    "torchvision": "0.25.0a0+7a13ad0f",
+    "transformer-engine": "2.9.0+70f53666",
+    "triton": "3.5.0"
+  }
+}

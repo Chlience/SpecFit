@@ -1,0 +1,3337 @@
+{
+  "artifact_type": "device_cost_model",
+  "device": "rtx4090",
+  "source": {
+    "basename": "calibration.json",
+    "sha256": "ba5ad385821475ced724bbbacffffd6db179b0d5cdbbdf97b7f16d6890b0a525",
+    "size_bytes": 71780
+  },
+  "stages": {
+    "calibration": {
+      "artifact_type": "selection_refinement_combined_result",
+      "batch_results": [
+        {
+          "basename": "calibration-batch-0.json",
+          "sha256": "d37d5740fd98fb7ac840b3af31bf644022fe1e44b9dbf6d205a8a7ba768f336a",
+          "size_bytes": 18233
+        },
+        {
+          "basename": "calibration-batch-1.json",
+          "sha256": "c578fbc504738946a1e92f746d0149906354f38bc8b37f2587aaff1f42d51603",
+          "size_bytes": 18232
+        },
+        {
+          "basename": "calibration-batch-2.json",
+          "sha256": "e1e41cdb1fe50796a1c5ed5dc4935fb2347a0a4a99ff84bf1454dad07e5e76de",
+          "size_bytes": 18232
+        }
+      ],
+      "counts": {
+        "cycles": 864,
+        "prompts": 3,
+        "states": 9
+      },
+      "fit_diagnostics": {
+        "acceptance": {
+          "accepted_by_grouped_validation": true,
+          "fitted_brier": 0.42314538235628835,
+          "folds": [
+            {
+              "calibrated_brier": 0.43341044550902796,
+              "exponent": 0.75,
+              "question_id": 401,
+              "raw_brier": 0.4320307595803309
+            },
+            {
+              "calibrated_brier": 0.440505754240009,
+              "exponent": 0.75,
+              "question_id": 402,
+              "raw_brier": 0.4644387681254314
+            },
+            {
+              "calibrated_brier": 0.39551994731982804,
+              "exponent": 0.75,
+              "question_id": 403,
+              "raw_brier": 0.39724644709443857
+            }
+          ],
+          "observations": 81,
+          "raw_brier": 0.43123865826673363,
+          "training_questions": [
+            401,
+            402,
+            403
+          ]
+        },
+        "cost": {
+          "cold": {
+            "cache": {
+              "cold_collinear_terms_collapsed": true,
+              "max_absolute_relative_error": 0.022559436930777776,
+              "mean_absolute_relative_error": 0.009749042107600503,
+              "point_count": 144,
+              "slope_candidates": 0,
+              "solver": "nonnegative_intercept_active_sets"
+            },
+            "held_out_prompt_folds": [
+              {
+                "cache_mean_absolute_relative_error": 0.022134700475213254,
+                "legacy_mean_absolute_relative_error": 0.022134700475213254,
+                "question_id": 401
+              },
+              {
+                "cache_mean_absolute_relative_error": 0.010576640551956165,
+                "legacy_mean_absolute_relative_error": 0.010576640551956165,
+                "question_id": 402
+              },
+              {
+                "cache_mean_absolute_relative_error": 0.01196838720314968,
+                "legacy_mean_absolute_relative_error": 0.01196838720314968,
+                "question_id": 403
+              }
+            ],
+            "legacy": {
+              "expert_slope_at_zero": false,
+              "fit_scope": "calibration_only_no_evaluation_timing_or_acceptance",
+              "max_absolute_relative_error": 0.022559436930777776,
+              "mean_absolute_relative_error": 0.009749042107600503,
+              "point_count": 144,
+              "rmse_ns": 9353431.03423048
+            },
+            "points": [
+              {
+                "cycle_without_selector_ns": 441975336,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 642551089.5,
+                "draft_node_count": 1,
+                "expert_union": 632,
+                "initial_missing": 632,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 789232157.5,
+                "draft_node_count": 2,
+                "expert_union": 817,
+                "initial_missing": 817,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 867119824.5,
+                "draft_node_count": 3,
+                "expert_union": 917,
+                "initial_missing": 917,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 968165691,
+                "draft_node_count": 4,
+                "expert_union": 1035,
+                "initial_missing": 1035,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1093160934.5,
+                "draft_node_count": 5,
+                "expert_union": 1193,
+                "initial_missing": 1193,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1208974633.5,
+                "draft_node_count": 6,
+                "expert_union": 1344,
+                "initial_missing": 1344,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1295372629,
+                "draft_node_count": 7,
+                "expert_union": 1443,
+                "initial_missing": 1443,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 441887078,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 640899025,
+                "draft_node_count": 1,
+                "expert_union": 632,
+                "initial_missing": 632,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 685342190,
+                "draft_node_count": 2,
+                "expert_union": 683,
+                "initial_missing": 683,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 816104333,
+                "draft_node_count": 3,
+                "expert_union": 849,
+                "initial_missing": 849,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 834997140.5,
+                "draft_node_count": 4,
+                "expert_union": 871,
+                "initial_missing": 871,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 868472418.5,
+                "draft_node_count": 5,
+                "expert_union": 910,
+                "initial_missing": 910,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 939703651,
+                "draft_node_count": 6,
+                "expert_union": 1000,
+                "initial_missing": 1000,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 994076794.5,
+                "draft_node_count": 7,
+                "expert_union": 1072,
+                "initial_missing": 1072,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 445449859,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 698404576.5,
+                "draft_node_count": 1,
+                "expert_union": 699,
+                "initial_missing": 699,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 814693188.5,
+                "draft_node_count": 2,
+                "expert_union": 843,
+                "initial_missing": 843,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 938370330.5,
+                "draft_node_count": 3,
+                "expert_union": 996,
+                "initial_missing": 996,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1033112101.5,
+                "draft_node_count": 4,
+                "expert_union": 1113,
+                "initial_missing": 1113,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1158673636.5,
+                "draft_node_count": 5,
+                "expert_union": 1277,
+                "initial_missing": 1277,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1228957850,
+                "draft_node_count": 6,
+                "expert_union": 1363,
+                "initial_missing": 1363,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1306812702.5,
+                "draft_node_count": 7,
+                "expert_union": 1464,
+                "initial_missing": 1464,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 443640940.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 656704391,
+                "draft_node_count": 1,
+                "expert_union": 646,
+                "initial_missing": 646,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 769837059,
+                "draft_node_count": 2,
+                "expert_union": 780,
+                "initial_missing": 780,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 878381873,
+                "draft_node_count": 3,
+                "expert_union": 922,
+                "initial_missing": 922,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 955344920,
+                "draft_node_count": 4,
+                "expert_union": 1020,
+                "initial_missing": 1020,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1038587605.5,
+                "draft_node_count": 5,
+                "expert_union": 1129,
+                "initial_missing": 1129,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1104850166,
+                "draft_node_count": 6,
+                "expert_union": 1209,
+                "initial_missing": 1209,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1154556637,
+                "draft_node_count": 7,
+                "expert_union": 1267,
+                "initial_missing": 1267,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 442566686,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 616861034,
+                "draft_node_count": 1,
+                "expert_union": 597,
+                "initial_missing": 597,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 765059993.5,
+                "draft_node_count": 2,
+                "expert_union": 782,
+                "initial_missing": 782,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 821221049.5,
+                "draft_node_count": 3,
+                "expert_union": 856,
+                "initial_missing": 856,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 929493058,
+                "draft_node_count": 4,
+                "expert_union": 990,
+                "initial_missing": 990,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1047598947.5,
+                "draft_node_count": 5,
+                "expert_union": 1140,
+                "initial_missing": 1140,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1068697079.5,
+                "draft_node_count": 6,
+                "expert_union": 1165,
+                "initial_missing": 1165,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1139032568.5,
+                "draft_node_count": 7,
+                "expert_union": 1252,
+                "initial_missing": 1252,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 444643334.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 617221194.5,
+                "draft_node_count": 1,
+                "expert_union": 597,
+                "initial_missing": 597,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 741221807.5,
+                "draft_node_count": 2,
+                "expert_union": 754,
+                "initial_missing": 754,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 820981608.5,
+                "draft_node_count": 3,
+                "expert_union": 853,
+                "initial_missing": 853,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 897751716.5,
+                "draft_node_count": 4,
+                "expert_union": 945,
+                "initial_missing": 945,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 954831286,
+                "draft_node_count": 5,
+                "expert_union": 1020,
+                "initial_missing": 1020,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 989480229.5,
+                "draft_node_count": 6,
+                "expert_union": 1065,
+                "initial_missing": 1065,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1013830358.5,
+                "draft_node_count": 7,
+                "expert_union": 1096,
+                "initial_missing": 1096,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 456463710,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 620706828.5,
+                "draft_node_count": 1,
+                "expert_union": 594,
+                "initial_missing": 594,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 738571749,
+                "draft_node_count": 2,
+                "expert_union": 729,
+                "initial_missing": 729,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 819649461,
+                "draft_node_count": 3,
+                "expert_union": 830,
+                "initial_missing": 830,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 933587629.5,
+                "draft_node_count": 4,
+                "expert_union": 982,
+                "initial_missing": 982,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1100396889,
+                "draft_node_count": 5,
+                "expert_union": 1178,
+                "initial_missing": 1178,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1139660694.5,
+                "draft_node_count": 6,
+                "expert_union": 1242,
+                "initial_missing": 1242,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1162293677,
+                "draft_node_count": 7,
+                "expert_union": 1260,
+                "initial_missing": 1260,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 456786391,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 624484452.5,
+                "draft_node_count": 1,
+                "expert_union": 593,
+                "initial_missing": 593,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 648925245.5,
+                "draft_node_count": 2,
+                "expert_union": 625,
+                "initial_missing": 625,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 745866390.5,
+                "draft_node_count": 3,
+                "expert_union": 748,
+                "initial_missing": 748,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 758464529.5,
+                "draft_node_count": 4,
+                "expert_union": 752,
+                "initial_missing": 752,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 795054290.5,
+                "draft_node_count": 5,
+                "expert_union": 802,
+                "initial_missing": 802,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 805805534.5,
+                "draft_node_count": 6,
+                "expert_union": 809,
+                "initial_missing": 809,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 861676610.5,
+                "draft_node_count": 7,
+                "expert_union": 893,
+                "initial_missing": 893,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 458955003.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 661770131.5,
+                "draft_node_count": 1,
+                "expert_union": 637,
+                "initial_missing": 637,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 831520498,
+                "draft_node_count": 2,
+                "expert_union": 839,
+                "initial_missing": 839,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 966974204,
+                "draft_node_count": 3,
+                "expert_union": 1021,
+                "initial_missing": 1021,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1132165245,
+                "draft_node_count": 4,
+                "expert_union": 1212,
+                "initial_missing": 1212,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1163396638.5,
+                "draft_node_count": 5,
+                "expert_union": 1262,
+                "initial_missing": 1262,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1197661849.5,
+                "draft_node_count": 6,
+                "expert_union": 1293,
+                "initial_missing": 1293,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1272572570,
+                "draft_node_count": 7,
+                "expert_union": 1383,
+                "initial_missing": 1383,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 454149500,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 664060787,
+                "draft_node_count": 1,
+                "expert_union": 633,
+                "initial_missing": 633,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 804278852.5,
+                "draft_node_count": 2,
+                "expert_union": 804,
+                "initial_missing": 804,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 878998002.5,
+                "draft_node_count": 3,
+                "expert_union": 905,
+                "initial_missing": 905,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1010018154.5,
+                "draft_node_count": 4,
+                "expert_union": 1060,
+                "initial_missing": 1060,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1060368910.5,
+                "draft_node_count": 5,
+                "expert_union": 1114,
+                "initial_missing": 1114,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1100906905,
+                "draft_node_count": 6,
+                "expert_union": 1174,
+                "initial_missing": 1174,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1143972471,
+                "draft_node_count": 7,
+                "expert_union": 1223,
+                "initial_missing": 1223,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 453732130.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 598449260.5,
+                "draft_node_count": 1,
+                "expert_union": 562,
+                "initial_missing": 562,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 721993878,
+                "draft_node_count": 2,
+                "expert_union": 705,
+                "initial_missing": 705,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 820637663.5,
+                "draft_node_count": 3,
+                "expert_union": 832,
+                "initial_missing": 832,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 949181657.5,
+                "draft_node_count": 4,
+                "expert_union": 991,
+                "initial_missing": 991,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1057752634.5,
+                "draft_node_count": 5,
+                "expert_union": 1123,
+                "initial_missing": 1123,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1088899232,
+                "draft_node_count": 6,
+                "expert_union": 1151,
+                "initial_missing": 1151,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1123821317.5,
+                "draft_node_count": 7,
+                "expert_union": 1193,
+                "initial_missing": 1193,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 458742817.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 600175918.5,
+                "draft_node_count": 1,
+                "expert_union": 562,
+                "initial_missing": 562,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 713347798,
+                "draft_node_count": 2,
+                "expert_union": 701,
+                "initial_missing": 701,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 768271605.5,
+                "draft_node_count": 3,
+                "expert_union": 764,
+                "initial_missing": 764,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 856404557,
+                "draft_node_count": 4,
+                "expert_union": 880,
+                "initial_missing": 880,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 932837906,
+                "draft_node_count": 5,
+                "expert_union": 968,
+                "initial_missing": 968,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 966917113.5,
+                "draft_node_count": 6,
+                "expert_union": 1008,
+                "initial_missing": 1008,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1013598649,
+                "draft_node_count": 7,
+                "expert_union": 1068,
+                "initial_missing": 1068,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 453892758.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 599484783,
+                "draft_node_count": 1,
+                "expert_union": 555,
+                "initial_missing": 555,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 675093828.5,
+                "draft_node_count": 2,
+                "expert_union": 652,
+                "initial_missing": 652,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 757710364,
+                "draft_node_count": 3,
+                "expert_union": 751,
+                "initial_missing": 751,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 921991496,
+                "draft_node_count": 4,
+                "expert_union": 956,
+                "initial_missing": 956,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1065579654.5,
+                "draft_node_count": 5,
+                "expert_union": 1135,
+                "initial_missing": 1135,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1152362573.5,
+                "draft_node_count": 6,
+                "expert_union": 1238,
+                "initial_missing": 1238,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 1180673054,
+                "draft_node_count": 7,
+                "expert_union": 1283,
+                "initial_missing": 1283,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 453188442.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 592857689.5,
+                "draft_node_count": 1,
+                "expert_union": 555,
+                "initial_missing": 555,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 679692424,
+                "draft_node_count": 2,
+                "expert_union": 652,
+                "initial_missing": 652,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 751071920.5,
+                "draft_node_count": 3,
+                "expert_union": 751,
+                "initial_missing": 751,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 826525969.5,
+                "draft_node_count": 4,
+                "expert_union": 834,
+                "initial_missing": 834,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 866756222,
+                "draft_node_count": 5,
+                "expert_union": 886,
+                "initial_missing": 886,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 933126976,
+                "draft_node_count": 6,
+                "expert_union": 969,
+                "initial_missing": 969,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 998955904,
+                "draft_node_count": 7,
+                "expert_union": 1048,
+                "initial_missing": 1048,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 453276699.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 649668461,
+                "draft_node_count": 1,
+                "expert_union": 624,
+                "initial_missing": 624,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 763601225.5,
+                "draft_node_count": 2,
+                "expert_union": 761,
+                "initial_missing": 761,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 889562052,
+                "draft_node_count": 3,
+                "expert_union": 915,
+                "initial_missing": 915,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 992716836,
+                "draft_node_count": 4,
+                "expert_union": 1033,
+                "initial_missing": 1033,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1145298315,
+                "draft_node_count": 5,
+                "expert_union": 1235,
+                "initial_missing": 1235,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1177643752,
+                "draft_node_count": 6,
+                "expert_union": 1274,
+                "initial_missing": 1274,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1192351230,
+                "draft_node_count": 7,
+                "expert_union": 1285,
+                "initial_missing": 1285,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 461441453.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 587544530,
+                "draft_node_count": 1,
+                "expert_union": 539,
+                "initial_missing": 539,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 726304578,
+                "draft_node_count": 2,
+                "expert_union": 713,
+                "initial_missing": 713,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 837489679,
+                "draft_node_count": 3,
+                "expert_union": 856,
+                "initial_missing": 856,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 908378281,
+                "draft_node_count": 4,
+                "expert_union": 940,
+                "initial_missing": 940,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 950417228.5,
+                "draft_node_count": 5,
+                "expert_union": 990,
+                "initial_missing": 990,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1015637936.5,
+                "draft_node_count": 6,
+                "expert_union": 1064,
+                "initial_missing": 1064,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 1051762849,
+                "draft_node_count": 7,
+                "expert_union": 1106,
+                "initial_missing": 1106,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 455677904.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 656126489.5,
+                "draft_node_count": 1,
+                "expert_union": 626,
+                "initial_missing": 626,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 776806104,
+                "draft_node_count": 2,
+                "expert_union": 775,
+                "initial_missing": 775,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 906246826.5,
+                "draft_node_count": 3,
+                "expert_union": 934,
+                "initial_missing": 934,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 967840173.5,
+                "draft_node_count": 4,
+                "expert_union": 1010,
+                "initial_missing": 1010,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 984155550,
+                "draft_node_count": 5,
+                "expert_union": 1027,
+                "initial_missing": 1027,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1007178216.5,
+                "draft_node_count": 6,
+                "expert_union": 1062,
+                "initial_missing": 1062,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1095732190.5,
+                "draft_node_count": 7,
+                "expert_union": 1161,
+                "initial_missing": 1161,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 456934385,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 384,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 607309379.5,
+                "draft_node_count": 1,
+                "expert_union": 562,
+                "initial_missing": 562,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 711656640.5,
+                "draft_node_count": 2,
+                "expert_union": 697,
+                "initial_missing": 697,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 769023298,
+                "draft_node_count": 3,
+                "expert_union": 763,
+                "initial_missing": 763,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 860690044,
+                "draft_node_count": 4,
+                "expert_union": 876,
+                "initial_missing": 876,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 906011847,
+                "draft_node_count": 5,
+                "expert_union": 925,
+                "initial_missing": 925,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 983348665,
+                "draft_node_count": 6,
+                "expert_union": 1026,
+                "initial_missing": 1026,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 1041640471.5,
+                "draft_node_count": 7,
+                "expert_union": 1097,
+                "initial_missing": 1097,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              }
+            ]
+          },
+          "natural": {
+            "cache": {
+              "cold_collinear_terms_collapsed": false,
+              "max_absolute_relative_error": 0.06226393655619,
+              "mean_absolute_relative_error": 0.019302138443007034,
+              "point_count": 144,
+              "slope_candidates": 769,
+              "solver": "nonnegative_intercept_active_sets"
+            },
+            "held_out_prompt_folds": [
+              {
+                "cache_mean_absolute_relative_error": 0.030946696576643742,
+                "legacy_mean_absolute_relative_error": 0.08287579814189105,
+                "question_id": 401
+              },
+              {
+                "cache_mean_absolute_relative_error": 0.014468527146132996,
+                "legacy_mean_absolute_relative_error": 0.05141569264192532,
+                "question_id": 402
+              },
+              {
+                "cache_mean_absolute_relative_error": 0.03610117334706212,
+                "legacy_mean_absolute_relative_error": 0.11399358208962668,
+                "question_id": 403
+              }
+            ],
+            "legacy": {
+              "expert_slope_at_zero": false,
+              "fit_scope": "calibration_only_no_evaluation_timing_or_acceptance",
+              "max_absolute_relative_error": 0.20395463435990457,
+              "mean_absolute_relative_error": 0.07993397467135323,
+              "point_count": 144,
+              "rmse_ns": 53216411.34997751
+            },
+            "points": [
+              {
+                "cycle_without_selector_ns": 347631547,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 231,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 463418572.5,
+                "draft_node_count": 1,
+                "expert_union": 632,
+                "initial_missing": 380,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 552972081,
+                "draft_node_count": 2,
+                "expert_union": 817,
+                "initial_missing": 496,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 595227191.5,
+                "draft_node_count": 3,
+                "expert_union": 917,
+                "initial_missing": 550,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 655486478,
+                "draft_node_count": 4,
+                "expert_union": 1035,
+                "initial_missing": 621,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 735718890,
+                "draft_node_count": 5,
+                "expert_union": 1193,
+                "initial_missing": 721,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 806360643.5,
+                "draft_node_count": 6,
+                "expert_union": 1344,
+                "initial_missing": 812,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 868849721.5,
+                "draft_node_count": 7,
+                "expert_union": 1443,
+                "initial_missing": 885,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 346223911.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 231,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 462205549.5,
+                "draft_node_count": 1,
+                "expert_union": 632,
+                "initial_missing": 380,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 492423087.5,
+                "draft_node_count": 2,
+                "expert_union": 683,
+                "initial_missing": 418,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 568355552.5,
+                "draft_node_count": 3,
+                "expert_union": 849,
+                "initial_missing": 511,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 586985207,
+                "draft_node_count": 4,
+                "expert_union": 871,
+                "initial_missing": 536,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 609376316.5,
+                "draft_node_count": 5,
+                "expert_union": 910,
+                "initial_missing": 559,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 644600023.5,
+                "draft_node_count": 6,
+                "expert_union": 1000,
+                "initial_missing": 606,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 679195219,
+                "draft_node_count": 7,
+                "expert_union": 1072,
+                "initial_missing": 650,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c0"
+              },
+              {
+                "cycle_without_selector_ns": 293471956,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 10,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 401353733.5,
+                "draft_node_count": 1,
+                "expert_union": 699,
+                "initial_missing": 157,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 445535504,
+                "draft_node_count": 2,
+                "expert_union": 843,
+                "initial_missing": 189,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 504978917,
+                "draft_node_count": 3,
+                "expert_union": 996,
+                "initial_missing": 278,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 549411923.5,
+                "draft_node_count": 4,
+                "expert_union": 1113,
+                "initial_missing": 328,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 596071299,
+                "draft_node_count": 5,
+                "expert_union": 1277,
+                "initial_missing": 371,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 631463579.5,
+                "draft_node_count": 6,
+                "expert_union": 1363,
+                "initial_missing": 416,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 660112413.5,
+                "draft_node_count": 7,
+                "expert_union": 1464,
+                "initial_missing": 438,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 294277877,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 10,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 374466959.5,
+                "draft_node_count": 1,
+                "expert_union": 646,
+                "initial_missing": 85,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 421320122.5,
+                "draft_node_count": 2,
+                "expert_union": 780,
+                "initial_missing": 122,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 475548863,
+                "draft_node_count": 3,
+                "expert_union": 922,
+                "initial_missing": 208,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 517592547,
+                "draft_node_count": 4,
+                "expert_union": 1020,
+                "initial_missing": 300,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 546690101,
+                "draft_node_count": 5,
+                "expert_union": 1129,
+                "initial_missing": 319,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 580180938,
+                "draft_node_count": 6,
+                "expert_union": 1209,
+                "initial_missing": 360,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 597725167.5,
+                "draft_node_count": 7,
+                "expert_union": 1267,
+                "initial_missing": 363,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c4"
+              },
+              {
+                "cycle_without_selector_ns": 321124797,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 148,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 416926611.5,
+                "draft_node_count": 1,
+                "expert_union": 597,
+                "initial_missing": 290,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 508950707,
+                "draft_node_count": 2,
+                "expert_union": 782,
+                "initial_missing": 419,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 550644369.5,
+                "draft_node_count": 3,
+                "expert_union": 856,
+                "initial_missing": 477,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 603427794,
+                "draft_node_count": 4,
+                "expert_union": 990,
+                "initial_missing": 535,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 658487040.5,
+                "draft_node_count": 5,
+                "expert_union": 1140,
+                "initial_missing": 598,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 672363938.5,
+                "draft_node_count": 6,
+                "expert_union": 1165,
+                "initial_missing": 615,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 722582564.5,
+                "draft_node_count": 7,
+                "expert_union": 1252,
+                "initial_missing": 680,
+                "method": "calibration_probability",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 320334943,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 148,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 417251479.5,
+                "draft_node_count": 1,
+                "expert_union": 597,
+                "initial_missing": 290,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 459124801,
+                "draft_node_count": 2,
+                "expert_union": 754,
+                "initial_missing": 320,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 520596862,
+                "draft_node_count": 3,
+                "expert_union": 853,
+                "initial_missing": 411,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 605097365,
+                "draft_node_count": 4,
+                "expert_union": 945,
+                "initial_missing": 544,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 619157286,
+                "draft_node_count": 5,
+                "expert_union": 1020,
+                "initial_missing": 552,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 658244945.5,
+                "draft_node_count": 6,
+                "expert_union": 1065,
+                "initial_missing": 608,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 668810256.5,
+                "draft_node_count": 7,
+                "expert_union": 1096,
+                "initial_missing": 622,
+                "method": "calibration_minimum_experts",
+                "question_id": 401,
+                "state_id": "q401-c8"
+              },
+              {
+                "cycle_without_selector_ns": 353198075.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 226,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 472770635.5,
+                "draft_node_count": 1,
+                "expert_union": 594,
+                "initial_missing": 367,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 538373495.5,
+                "draft_node_count": 2,
+                "expert_union": 729,
+                "initial_missing": 451,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 586924301,
+                "draft_node_count": 3,
+                "expert_union": 830,
+                "initial_missing": 522,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 655076031,
+                "draft_node_count": 4,
+                "expert_union": 982,
+                "initial_missing": 608,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 752291455,
+                "draft_node_count": 5,
+                "expert_union": 1178,
+                "initial_missing": 719,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 784327608,
+                "draft_node_count": 6,
+                "expert_union": 1242,
+                "initial_missing": 764,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 788520803.5,
+                "draft_node_count": 7,
+                "expert_union": 1260,
+                "initial_missing": 777,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 356764402.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 226,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 468641788.5,
+                "draft_node_count": 1,
+                "expert_union": 593,
+                "initial_missing": 367,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 489159914,
+                "draft_node_count": 2,
+                "expert_union": 625,
+                "initial_missing": 389,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 538260367.5,
+                "draft_node_count": 3,
+                "expert_union": 748,
+                "initial_missing": 461,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 545744303,
+                "draft_node_count": 4,
+                "expert_union": 752,
+                "initial_missing": 463,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 572537527.5,
+                "draft_node_count": 5,
+                "expert_union": 802,
+                "initial_missing": 497,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 570640288,
+                "draft_node_count": 6,
+                "expert_union": 809,
+                "initial_missing": 501,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 611816767,
+                "draft_node_count": 7,
+                "expert_union": 893,
+                "initial_missing": 560,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c0"
+              },
+              {
+                "cycle_without_selector_ns": 315002556.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 55,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 413981518,
+                "draft_node_count": 1,
+                "expert_union": 637,
+                "initial_missing": 203,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 495541999,
+                "draft_node_count": 2,
+                "expert_union": 839,
+                "initial_missing": 324,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 543868011,
+                "draft_node_count": 3,
+                "expert_union": 1021,
+                "initial_missing": 362,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 610118698.5,
+                "draft_node_count": 4,
+                "expert_union": 1212,
+                "initial_missing": 424,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 635815345.5,
+                "draft_node_count": 5,
+                "expert_union": 1262,
+                "initial_missing": 456,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 639438731.5,
+                "draft_node_count": 6,
+                "expert_union": 1293,
+                "initial_missing": 462,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 673015871.5,
+                "draft_node_count": 7,
+                "expert_union": 1383,
+                "initial_missing": 486,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 305462800,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 55,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 415663153.5,
+                "draft_node_count": 1,
+                "expert_union": 633,
+                "initial_missing": 216,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 490319876,
+                "draft_node_count": 2,
+                "expert_union": 804,
+                "initial_missing": 323,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 520488592,
+                "draft_node_count": 3,
+                "expert_union": 905,
+                "initial_missing": 361,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 578055916,
+                "draft_node_count": 4,
+                "expert_union": 1060,
+                "initial_missing": 402,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 592278456.5,
+                "draft_node_count": 5,
+                "expert_union": 1114,
+                "initial_missing": 403,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 603708612,
+                "draft_node_count": 6,
+                "expert_union": 1174,
+                "initial_missing": 424,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 619240795,
+                "draft_node_count": 7,
+                "expert_union": 1223,
+                "initial_missing": 439,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c4"
+              },
+              {
+                "cycle_without_selector_ns": 317818801,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 113,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 394147978.5,
+                "draft_node_count": 1,
+                "expert_union": 562,
+                "initial_missing": 200,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 461261217.5,
+                "draft_node_count": 2,
+                "expert_union": 705,
+                "initial_missing": 277,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 487388997.5,
+                "draft_node_count": 3,
+                "expert_union": 832,
+                "initial_missing": 309,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 557850604.5,
+                "draft_node_count": 4,
+                "expert_union": 991,
+                "initial_missing": 386,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 616648754,
+                "draft_node_count": 5,
+                "expert_union": 1123,
+                "initial_missing": 465,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 628303475,
+                "draft_node_count": 6,
+                "expert_union": 1151,
+                "initial_missing": 480,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 649288255,
+                "draft_node_count": 7,
+                "expert_union": 1193,
+                "initial_missing": 508,
+                "method": "calibration_probability",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 326479455,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 113,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 396370420.5,
+                "draft_node_count": 1,
+                "expert_union": 562,
+                "initial_missing": 200,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 448823761,
+                "draft_node_count": 2,
+                "expert_union": 701,
+                "initial_missing": 269,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 481381455,
+                "draft_node_count": 3,
+                "expert_union": 764,
+                "initial_missing": 307,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 513101690.5,
+                "draft_node_count": 4,
+                "expert_union": 880,
+                "initial_missing": 336,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 558365245.5,
+                "draft_node_count": 5,
+                "expert_union": 968,
+                "initial_missing": 403,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 594477897.5,
+                "draft_node_count": 6,
+                "expert_union": 1008,
+                "initial_missing": 454,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 610135432.5,
+                "draft_node_count": 7,
+                "expert_union": 1068,
+                "initial_missing": 471,
+                "method": "calibration_minimum_experts",
+                "question_id": 402,
+                "state_id": "q402-c8"
+              },
+              {
+                "cycle_without_selector_ns": 360922279.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 245,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 445555338,
+                "draft_node_count": 1,
+                "expert_union": 555,
+                "initial_missing": 341,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 493150311,
+                "draft_node_count": 2,
+                "expert_union": 652,
+                "initial_missing": 400,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 538774181,
+                "draft_node_count": 3,
+                "expert_union": 751,
+                "initial_missing": 459,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 642856027.5,
+                "draft_node_count": 4,
+                "expert_union": 956,
+                "initial_missing": 584,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 722030309.5,
+                "draft_node_count": 5,
+                "expert_union": 1135,
+                "initial_missing": 687,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 778889568,
+                "draft_node_count": 6,
+                "expert_union": 1238,
+                "initial_missing": 756,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 802911497.5,
+                "draft_node_count": 7,
+                "expert_union": 1283,
+                "initial_missing": 786,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 362676517.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 245,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 448930496.5,
+                "draft_node_count": 1,
+                "expert_union": 555,
+                "initial_missing": 341,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 492644121.5,
+                "draft_node_count": 2,
+                "expert_union": 652,
+                "initial_missing": 400,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 537896706,
+                "draft_node_count": 3,
+                "expert_union": 751,
+                "initial_missing": 459,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 575575761.5,
+                "draft_node_count": 4,
+                "expert_union": 834,
+                "initial_missing": 507,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 605885122,
+                "draft_node_count": 5,
+                "expert_union": 886,
+                "initial_missing": 546,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 648391054,
+                "draft_node_count": 6,
+                "expert_union": 969,
+                "initial_missing": 591,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 689717883,
+                "draft_node_count": 7,
+                "expert_union": 1048,
+                "initial_missing": 646,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c0"
+              },
+              {
+                "cycle_without_selector_ns": 308589450,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 52,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 396091464,
+                "draft_node_count": 1,
+                "expert_union": 624,
+                "initial_missing": 142,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 434965657.5,
+                "draft_node_count": 2,
+                "expert_union": 761,
+                "initial_missing": 158,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 477620493.5,
+                "draft_node_count": 3,
+                "expert_union": 915,
+                "initial_missing": 169,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 505501768.5,
+                "draft_node_count": 4,
+                "expert_union": 1033,
+                "initial_missing": 176,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 562152471,
+                "draft_node_count": 5,
+                "expert_union": 1235,
+                "initial_missing": 190,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 572028156,
+                "draft_node_count": 6,
+                "expert_union": 1274,
+                "initial_missing": 215,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 581819380,
+                "draft_node_count": 7,
+                "expert_union": 1285,
+                "initial_missing": 221,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 308558390,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 52,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 364338142.5,
+                "draft_node_count": 1,
+                "expert_union": 539,
+                "initial_missing": 86,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 411254643,
+                "draft_node_count": 2,
+                "expert_union": 713,
+                "initial_missing": 120,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 478102757.5,
+                "draft_node_count": 3,
+                "expert_union": 856,
+                "initial_missing": 221,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 495545969.5,
+                "draft_node_count": 4,
+                "expert_union": 940,
+                "initial_missing": 220,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 506490728.5,
+                "draft_node_count": 5,
+                "expert_union": 990,
+                "initial_missing": 201,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 522529640.5,
+                "draft_node_count": 6,
+                "expert_union": 1064,
+                "initial_missing": 212,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 535107411,
+                "draft_node_count": 7,
+                "expert_union": 1106,
+                "initial_missing": 214,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c4"
+              },
+              {
+                "cycle_without_selector_ns": 301389863.5,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 25,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 394648475,
+                "draft_node_count": 1,
+                "expert_union": 626,
+                "initial_missing": 123,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 446326518.5,
+                "draft_node_count": 2,
+                "expert_union": 775,
+                "initial_missing": 186,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 519586119,
+                "draft_node_count": 3,
+                "expert_union": 934,
+                "initial_missing": 285,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 537760104,
+                "draft_node_count": 4,
+                "expert_union": 1010,
+                "initial_missing": 300,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 543531804.5,
+                "draft_node_count": 5,
+                "expert_union": 1027,
+                "initial_missing": 312,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 553726454.5,
+                "draft_node_count": 6,
+                "expert_union": 1062,
+                "initial_missing": 337,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 609103786.5,
+                "draft_node_count": 7,
+                "expert_union": 1161,
+                "initial_missing": 413,
+                "method": "calibration_probability",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 305728306,
+                "draft_node_count": 0,
+                "expert_union": 384,
+                "initial_missing": 25,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 363962893,
+                "draft_node_count": 1,
+                "expert_union": 562,
+                "initial_missing": 50,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 410462624.5,
+                "draft_node_count": 2,
+                "expert_union": 697,
+                "initial_missing": 125,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 439414406,
+                "draft_node_count": 3,
+                "expert_union": 763,
+                "initial_missing": 155,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 478022459,
+                "draft_node_count": 4,
+                "expert_union": 876,
+                "initial_missing": 218,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 505747512,
+                "draft_node_count": 5,
+                "expert_union": 925,
+                "initial_missing": 252,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 549480289,
+                "draft_node_count": 6,
+                "expert_union": 1026,
+                "initial_missing": 330,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              },
+              {
+                "cycle_without_selector_ns": 575836213.5,
+                "draft_node_count": 7,
+                "expert_union": 1097,
+                "initial_missing": 363,
+                "method": "calibration_minimum_experts",
+                "question_id": 403,
+                "state_id": "q403-c8"
+              }
+            ]
+          }
+        }
+      },
+      "git_commit": "f970ea79b7af46647bf4d5982102caf386d0e08e",
+      "manifest_sha256": "c23088ff2ac833bdbaa89cc936ae686320eb9317c6b50f539bf1e343cbe51f78",
+      "measurement_identity": {
+        "files": [
+          {
+            "path": "docker/base-packages.lock.json",
+            "sha256": "1c34699fe1ea8e6452a7eaf57eef04def18783fe25634634c907eaa40e328ec2"
+          },
+          {
+            "path": "docker/models.lock.json",
+            "sha256": "505a20047893ba326fdfc6700013a160250dd6707d5b20fdb452fd3693906f59"
+          },
+          {
+            "path": "docker/requirements.overlay.lock",
+            "sha256": "cbd72159f5756dca66343e6b66840b1d87c44839e85846ef9431fb0acbfd8f87"
+          },
+          {
+            "path": "scripts/benchmark_qwen3_m1_full_atlas.py",
+            "sha256": "41541e4a2caea9b1ed5598e2123492880a57da1d10e6cee1da6b313b3f38faaf"
+          },
+          {
+            "path": "scripts/benchmark_qwen3_selection.py",
+            "sha256": "8c5830007e9f784338a9f47b308f46f98e66386c0e0d2e2c73bc8d7372741c2e"
+          },
+          {
+            "path": "scripts/benchmark_qwen3_selection_matrix.py",
+            "sha256": "840528661ce53a8e93a0fa96e7c86d8a079bef72f79c42a1d4c54f5eeffc9ade"
+          },
+          {
+            "path": "scripts/benchmark_qwen3_selection_refinement.py",
+            "sha256": "0f9ea73ce760b3c7fdf8d147b1af47b70cd0c2b3b485e812d2d5b1473fd790c7"
+          },
+          {
+            "path": "src/specfit/__init__.py",
+            "sha256": "a7abac49bcc99f8e87c1ef2820d59b7b25a1097aa2f8ef272bb7b723d0a6fce6"
+          },
+          {
+            "path": "src/specfit/a0_analysis.py",
+            "sha256": "466ee1741e5f4097028a23b01c8b6b68769fb6208762140b516df37e6f5ad41d"
+          },
+          {
+            "path": "src/specfit/a0_contract.py",
+            "sha256": "e28ad76fc571c43d2f030b0c235a225de93a15b4c54ffb6ed2ed54b9a13dfea9"
+          },
+          {
+            "path": "src/specfit/a0_oracle_prefetch.py",
+            "sha256": "24e08d560675cf2a41c7ce43a074faf3acfbdc2a82362ffb733626c33b1fac8a"
+          },
+          {
+            "path": "src/specfit/a0_validation.py",
+            "sha256": "5aca37b95c78bd6bc2b54004fa72d2aea47caa12657a5cbe975d75f85dc5ef65"
+          },
+          {
+            "path": "src/specfit/acceptance_metrics.py",
+            "sha256": "7827d0325edc901caaad15c7743b45ce03fc6ad68463375aa18959ab83c64b3a"
+          },
+          {
+            "path": "src/specfit/acceptance_rank_calibration.py",
+            "sha256": "2b9206da3e9dd12741b32e0c543c8b654dd44c56bc10f9676f4ef7ecb39d1ed2"
+          },
+          {
+            "path": "src/specfit/adapters/__init__.py",
+            "sha256": "aa4b893d5bdfa33ba05466a27339243a62a9c8662064a53c2cf1100dfd912369"
+          },
+          {
+            "path": "src/specfit/adapters/qwen3_checkpoint.py",
+            "sha256": "8f661153ef69f209c7e28c25e26deab042a709451240cc56a496c5d44cfc370c"
+          },
+          {
+            "path": "src/specfit/adapters/qwen3_packed_checkpoint.py",
+            "sha256": "6b1e54c0e6f93d029441768a0cf5606aa865cfbc67dc255b95b548b00815428e"
+          },
+          {
+            "path": "src/specfit/cache_selection_diagnostic.py",
+            "sha256": "865a524909fa2a52af170c8284a999c57cded3b9279041a233fb450eabc2205d"
+          },
+          {
+            "path": "src/specfit/cache_selection_diagnostic_runtime.py",
+            "sha256": "f20504453e9b063e2410202b01c6161f80c4e2ad65c0f1e7c5bd8a53cbc1c1a3"
+          },
+          {
+            "path": "src/specfit/checkpoint_audit.py",
+            "sha256": "ffbdb6516da0ecf4e2d1f347269ab8a40cbd60863da95102845ba603e23ee839"
+          },
+          {
+            "path": "src/specfit/checkpoint_comparison.py",
+            "sha256": "2ffb6c04b1753f8f3c45a92ef2e06d5af855d86e02aa733cae7cfb648a729b57"
+          },
+          {
+            "path": "src/specfit/cross_layer_prefetch.py",
+            "sha256": "751ec22022d53872fb26adeafc1ab1f7e4a94f38401be2993015310e22e770c9"
+          },
+          {
+            "path": "src/specfit/cross_layer_prefetch_runtime.py",
+            "sha256": "38c360311277977a97cd6dfd268fcac0dbdbb714a79bf7b5802d8d36b24d79e1"
+          },
+          {
+            "path": "src/specfit/demand_session_experiment.py",
+            "sha256": "e90a6bfebd4e1ca647d1d2eea771ad13b948739e5c9f9cf9692138a8ac9d5464"
+          },
+          {
+            "path": "src/specfit/experiment.py",
+            "sha256": "d05c4a84309b72fe6f0a88084c8131dd3f75ee8d29f9c076e840e592eda9ad81"
+          },
+          {
+            "path": "src/specfit/f0_a1_calibration.py",
+            "sha256": "5ea947782dd09c71b8d678c5e80b31caa25abefced2762bc9356fa9f0e3e231b"
+          },
+          {
+            "path": "src/specfit/f0_direct.py",
+            "sha256": "696743b77fc8fc07e9eddc80db7ed63b3c7fda846ddc92022d43eef99f65c436"
+          },
+          {
+            "path": "src/specfit/f0_direct_analysis.py",
+            "sha256": "8b1c3d3d3394289b96333ae26e7a2813519cb904e0baba20042e2c7c6aa7fe67"
+          },
+          {
+            "path": "src/specfit/f0_direct_runtime.py",
+            "sha256": "046e1a4ed64efd03318c1b7f02a4d96029c7773111eb2892fce76f5a51276419"
+          },
+          {
+            "path": "src/specfit/f0_natural_supplement.py",
+            "sha256": "dedfa4cbf4e615dc737f6e03455ee530d6e6c08298f926206ead72588ba2f24e"
+          },
+          {
+            "path": "src/specfit/f0_proxy_screen.py",
+            "sha256": "a124df9bcc2d77d61c0de46ee242038431fd9b2197544595c52d2170b86f243b"
+          },
+          {
+            "path": "src/specfit/g0_resident_first.py",
+            "sha256": "992285c4036e10b5c14aec8a3a31468c7c8920058a5f471634ea77f1b9b5e6a8"
+          },
+          {
+            "path": "src/specfit/g0_resident_first_validation.py",
+            "sha256": "fd1f8b17294da814665cb15d26caa771c94fd28b4e5f333bde25a483010f28b5"
+          },
+          {
+            "path": "src/specfit/g1_cross_cycle.py",
+            "sha256": "20850d90f0f7f1a718be7d1d81a867b6daedce7585b38d588fce1dd5f3777dc5"
+          },
+          {
+            "path": "src/specfit/g1_cross_cycle_validation.py",
+            "sha256": "cb531cb0fabee67071c2b5a8ef5b006d8bff59b0a0a77b3072388717e2ce14d5"
+          },
+          {
+            "path": "src/specfit/gsm8k.py",
+            "sha256": "26b8a83cac948fe5708f609d491d71af069f8ec4887575ca46087e5c6d92a486"
+          },
+          {
+            "path": "src/specfit/gsm8k_depth5_experiment.py",
+            "sha256": "97e1ee48706da99d8a30ac714abf4d8c0110c9d595100d89e28618ec962c4073"
+          },
+          {
+            "path": "src/specfit/gsm8k_depth_compare_experiment.py",
+            "sha256": "d023a26058399f463990188fedc589db9791e477ec7cf222c68cd5d4e145b8c3"
+          },
+          {
+            "path": "src/specfit/gsm8k_experiment.py",
+            "sha256": "6267e5e44af832f39fb008ec671e099dd3b14ad4a3fadf9f78d6761d6229f34a"
+          },
+          {
+            "path": "src/specfit/j1_artifact.py",
+            "sha256": "24918b18214f6406733c3537200ead9a1658b98de0c0edd764b50d14297f319b"
+          },
+          {
+            "path": "src/specfit/j1_calibration.py",
+            "sha256": "af17daa0ccb95e5b422cbcdd1f5de7dc0a062a212895a7809c6eaf885975542d"
+          },
+          {
+            "path": "src/specfit/j1_screen.py",
+            "sha256": "c1ec8790f33dfe502412ba218cad0ae718047f2143d2e07405d223787de9547e"
+          },
+          {
+            "path": "src/specfit/long_sequence_validation.py",
+            "sha256": "db7f19d9c66c98ebe7c620de5e76656793b670111faade7d59339ba91d4a3d2c"
+          },
+          {
+            "path": "src/specfit/m1_capture.py",
+            "sha256": "f3cedac86e6f7a5d54d8fa10a3ad6ca0209c37e782c4ffa730253db9eabd1105"
+          },
+          {
+            "path": "src/specfit/m1_capture_pool.py",
+            "sha256": "f0463593c6814fadcfbcf633bb3b5bc97f7650c67d2f350336ea05158ba3f562"
+          },
+          {
+            "path": "src/specfit/m1_capture_replay.py",
+            "sha256": "cc5ee7d8a02ab27b1ac20dfb0cbdb6d967ea24eecb070bb45b65357be73fc572"
+          },
+          {
+            "path": "src/specfit/m1_capture_sources.py",
+            "sha256": "728d13e566d09704c7dc1d24fed0f7dee2df145395073e217188fb42278be31b"
+          },
+          {
+            "path": "src/specfit/m1_capture_validation.py",
+            "sha256": "3c5979adeff5821857f19d6c8b8aeba8ddab62a3896498d5142b7e401feb20e5"
+          },
+          {
+            "path": "src/specfit/m1_screen.py",
+            "sha256": "3d32534af0bd470e269a96286ee088440be8b49d633634180acbe3d445ad4ba2"
+          },
+          {
+            "path": "src/specfit/m1_screen_artifact.py",
+            "sha256": "b074912354dabcc921bda28f041d230eef42c032b25ac8da95b1244f9ab6ecd2"
+          },
+          {
+            "path": "src/specfit/main_comparison.py",
+            "sha256": "adef10ad962effef2e898251f3607b82348a1603b5a7f81cc71677fbbcdbb561"
+          },
+          {
+            "path": "src/specfit/main_comparison_runtime.py",
+            "sha256": "d48ad541304a551ab57fba0efeeeb90ad17291f873b5ca2c50894190a48bb630"
+          },
+          {
+            "path": "src/specfit/offload_capacity_experiment.py",
+            "sha256": "f8a75a079da1b1bbb2852e15740e1377adbf87e0a4a99802cdfe4550440de835"
+          },
+          {
+            "path": "src/specfit/offload_capacity_runtime.py",
+            "sha256": "bd2011a0f0d9200acd1ef795c5f6a4aa61a033ab93b6e84d212c9d60a07cc9ff"
+          },
+          {
+            "path": "src/specfit/r6a_artifact_validation.py",
+            "sha256": "433c59011cd481520da9dad5af4dcfd2a80af37e19e493261e3e06f8406e2a29"
+          },
+          {
+            "path": "src/specfit/r6a_experiment.py",
+            "sha256": "e926d85d8c57ff17be95089d07e1943610071b914f0d36a13b4b57724e8093b7"
+          },
+          {
+            "path": "src/specfit/r6a_frozen_cycle.py",
+            "sha256": "4521c90e3f1fbf6870128c545854491607c721dd26e2acad9b1d5343dcb747ce"
+          },
+          {
+            "path": "src/specfit/r6a_identity.py",
+            "sha256": "9502b96f2c6cfbcd6095e46fce13db4b038e787bf275b82f1139df188181e379"
+          },
+          {
+            "path": "src/specfit/r6a_route_observation.py",
+            "sha256": "449d25683b984db2bd1ea9c980258a387255146097fc411eb8128de6ea8cb0e2"
+          },
+          {
+            "path": "src/specfit/r6a_runner.py",
+            "sha256": "5b44d0485e55f9d077af03e8bd17fa99593cce0a0ce0b55887d9c1eed16f4d0d"
+          },
+          {
+            "path": "src/specfit/r6a_selection_contract.py",
+            "sha256": "564a4e301c32943d8f5cf83ad0bd694f2b05d11ec420a27d05b6f029a2850c5f"
+          },
+          {
+            "path": "src/specfit/r6a_tb1b.py",
+            "sha256": "ee64073ec11d2939264b7a14eea812747b3ca82fb5d26d5e9ee4147d0215b215"
+          },
+          {
+            "path": "src/specfit/r6a_tb1b_validation.py",
+            "sha256": "0722597fda389be725cab200163e4f0be4c488a294c987c4b9a066a0fdebc7e7"
+          },
+          {
+            "path": "src/specfit/r6a_tb2.py",
+            "sha256": "fb013cd41bdb4a45ead12244a3563a1202fbb8028c944e78a4a74d9671a9dc74"
+          },
+          {
+            "path": "src/specfit/r6a_tb2_contract.py",
+            "sha256": "b3c57f6138648ad32aaff20c79537495a17273f18baffa6cba380e8d4de2da71"
+          },
+          {
+            "path": "src/specfit/r6a_tb2_validation.py",
+            "sha256": "ea08006999d192fabfe1edaba31efa8f6b1585ee8b2cd26928b9f3910a3ff303"
+          },
+          {
+            "path": "src/specfit/r6a_tb2b.py",
+            "sha256": "93a59bdd98be44a3022a249a433dd559d15742d040686cab5d12eebf0815b3ab"
+          },
+          {
+            "path": "src/specfit/r6a_tb2b_artifact.py",
+            "sha256": "486ba02ed55e4c1ae8393051539cf609026579c6a57481d328f9f2db20f644e1"
+          },
+          {
+            "path": "src/specfit/replay.py",
+            "sha256": "5e3ef857ec0e8fe359d4f8cc201c2bf4beb361f4cbccea4d3af5961577a001a3"
+          },
+          {
+            "path": "src/specfit/runtime/__init__.py",
+            "sha256": "e14fd6b25d5c426013bab9012ece2805de8e107ef490be696fe2e836f32abbb6"
+          },
+          {
+            "path": "src/specfit/runtime/cache_observer.py",
+            "sha256": "b747db974cf9b27cb8e1d7c6186828f792aded7a4cccff938e77a6f49bb1c561"
+          },
+          {
+            "path": "src/specfit/runtime/cache_snapshot.py",
+            "sha256": "0afe2101e8b2bd41913b7095f99c1f9df2332673475491d7577c4411db59a453"
+          },
+          {
+            "path": "src/specfit/runtime/demand_session.py",
+            "sha256": "33af3febfcd76b622eaa55eb88193b3b07975a9626d17f9c477f445668d50a7a"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_attention.py",
+            "sha256": "3a5699be28007748e9846dea907e6b80f3206f30fca0fe39077d9f81f4cdea77"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_chain.py",
+            "sha256": "f6b6ab2f013223f28a4487f6c12f72cf8b9ae8cd48ece1d7d3ec0207a11da507"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_equivalence.py",
+            "sha256": "5f37fef24743de9facb82aff4310e99d861f576124cfcf4dada708419b2a83f4"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_selection.py",
+            "sha256": "72954c6fd71cffbfcbb5e68d354d6b44ae055b1a1dde8e78930d6428e9d7aad2"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_trace.py",
+            "sha256": "05ef68254bee1d89e30fb71e37060b441316e7d0766a304e050f07acb55035df"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_tree.py",
+            "sha256": "998242acc7e87174cc9ada9253287a2714e0414bc932867a75341e3b81dcf5b3"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_types.py",
+            "sha256": "f7f6ba52f6c577c8d967d6fa5ee35b1754ce569ae0cc74a9fe412865c1ee77d5"
+          },
+          {
+            "path": "src/specfit/runtime/eagle3_warmup.py",
+            "sha256": "24e8c232b1b75c63d55718f1b6845f7ebafada8a8d87811e5d29a0d955123c41"
+          },
+          {
+            "path": "src/specfit/runtime/gpu_expert_cache.py",
+            "sha256": "2d6524b64c38613e9de2650f8c30d15bcb41467bfc5d2d9c2061b819e518b584"
+          },
+          {
+            "path": "src/specfit/runtime/lease.py",
+            "sha256": "2fa6224ea2264d259d8f16105508130d412de3720c391dae072e52b2d46bc064"
+          },
+          {
+            "path": "src/specfit/runtime/numeric_modes.py",
+            "sha256": "006b6b15352b8220d39a3dd5b55df2da46d3b2033da94b06b503f9cb157d730b"
+          },
+          {
+            "path": "src/specfit/runtime/qwen3_expert_prefetch.py",
+            "sha256": "507b3902e6ea83bfb1b982fdc4b8515b8f398bf73b800157ff9bb4af4731c7da"
+          },
+          {
+            "path": "src/specfit/runtime/qwen3_offloaded_experts.py",
+            "sha256": "a6164da0a656b9098da5a4b9f746246c3ed264b9d3b316a7079acc4afc4f91d0"
+          },
+          {
+            "path": "src/specfit/runtime/qwen3_offloaded_model.py",
+            "sha256": "f83bf3519315eb4b94b7653fce8237d01c70f1835e2896661f2afd8620b0ab13"
+          },
+          {
+            "path": "src/specfit/runtime/registered_mmap.py",
+            "sha256": "680780f9b894fac61ecbb0e3af8af34499881deb6445942a90b66608889d7384"
+          },
+          {
+            "path": "src/specfit/selection_evaluation.py",
+            "sha256": "1c1c480527a37cb8254f14231a00c385da22eb822d99702c0c125de1bef38913"
+          },
+          {
+            "path": "src/specfit/selection_evaluation_runtime.py",
+            "sha256": "b8df40efa5f9f1678d45d54cbff14aefcd4ee5d9a6700bc2b0765db5714acace"
+          },
+          {
+            "path": "src/specfit/selection_iteration.py",
+            "sha256": "e931d0cf44a956751e79751273a40ea952e7aa174943eccd4e1610d38ccc3687"
+          },
+          {
+            "path": "src/specfit/selection_matrix.py",
+            "sha256": "f5cb6d2bb9f0b2f6f736a3f5d4dda98dff6b1951b28a2f1d7a6a9ae1c4ecafcd"
+          },
+          {
+            "path": "src/specfit/selection_methods.py",
+            "sha256": "8339a839d461d70e3ee58cc93044faa4ec4d8ad8e4d1dc5f4d3b9e4ce215a1a8"
+          },
+          {
+            "path": "src/specfit/selection_prefetch_evaluation.py",
+            "sha256": "e84d86cd09c1cf21c8c62800325b58c49641105cdd86239dbbe556403aaa5397"
+          },
+          {
+            "path": "src/specfit/selection_refinement.py",
+            "sha256": "9d07b39c12d3a6f04d4ae694413bf00feadc8e67e6430709f734ebb3609080e8"
+          },
+          {
+            "path": "src/specfit/selection_refinement_evaluation.py",
+            "sha256": "639b4689addbcecf100b44b4ece5a0052a4cd5caae71529667742acd90f57a49"
+          },
+          {
+            "path": "src/specfit/selection_refinement_runtime.py",
+            "sha256": "ec86397b9f84fe6a0192d772d6008f366809b7acd95804d777c898a792b735ee"
+          },
+          {
+            "path": "src/specfit/selection_spine.py",
+            "sha256": "0e01d4abb383b8f039393b6ea4c8884a0fa5cd7f5e9e80b78ab1c708ee8b0fab"
+          },
+          {
+            "path": "src/specfit/serial_replay.py",
+            "sha256": "6e63287de55f51c44224fee112768761b31a63a42452cb279a88ea628e2557dd"
+          },
+          {
+            "path": "src/specfit/specfit_budget_screen.py",
+            "sha256": "ab818d4bf5c0d762b8e55c37db28bfbac3a74f421dc71322cd9af5ee17d53cae"
+          },
+          {
+            "path": "src/specfit/specfit_conditional_experiment.py",
+            "sha256": "2e5bdd9ea0d75716587eb92ea3b0aaef0d300415b5548716538b9e65fb4ee7d6"
+          },
+          {
+            "path": "src/specfit/specfit_conditional_reward.py",
+            "sha256": "0a2bd9e5834a07e27823c8a02f26ea7dee5551d502558ef08361b940c79250da"
+          },
+          {
+            "path": "src/specfit/specfit_conditional_runtime.py",
+            "sha256": "814cf5c9c80184447fa881eb3be2f9583cbfd8ed7dc92e8091cb68bb0267707d"
+          },
+          {
+            "path": "src/specfit/specfit_conditional_training.py",
+            "sha256": "2e14c7568d9e6599978a4ac5c1c4401eaa1f69430372f0cb944a3ea8247b0e42"
+          },
+          {
+            "path": "src/specfit/specfit_exact.py",
+            "sha256": "c4ee0462cd953a8171da5becaacf72c9b1368b28ad8c8e690691d889ef50e9e8"
+          },
+          {
+            "path": "src/specfit/specfit_exact_experiment.py",
+            "sha256": "a166b4784cbedafee7decd18e2076e9dbfe939fb07949cc391618873dcb5aec6"
+          },
+          {
+            "path": "src/specfit/specfit_exact_runtime.py",
+            "sha256": "71a4ffa2d2a47223bc6c72303022f9c93d35a29013da6badf10d3828172eabae"
+          },
+          {
+            "path": "src/specfit/specfit_global_experiment.py",
+            "sha256": "e75991c4c0e408b3c4ead0547e59934716108a6a006e2411a73d82064a96c3a1"
+          },
+          {
+            "path": "src/specfit/specfit_pruning_loss.py",
+            "sha256": "f979bee5c5dcec66e412772da08f58b699a09d1c0d4a582b4605076dccb6ed53"
+          },
+          {
+            "path": "src/specfit/specfit_reached_training.py",
+            "sha256": "0b6c0433d1a4120de99a9b37935f5c17096ef2922d6942def771bc83e2a9dbee"
+          },
+          {
+            "path": "src/specfit/specfit_route_experiment.py",
+            "sha256": "a8fae22db635cddfa09897e1fff5f4acac57ed3bf9e64e43afaa09e67c866513"
+          },
+          {
+            "path": "src/specfit/specfit_route_pipeline.py",
+            "sha256": "eff8b6ed616433ba0e7c9250cbffa60ee78dc21be1c4a47ff76f0d7186fa9d37"
+          },
+          {
+            "path": "src/specfit/specfit_selection_ablation.py",
+            "sha256": "e9e8842466b28712f240a0a8eb410f4a54bb533cb2fa60831dcbceb14467951e"
+          },
+          {
+            "path": "src/specfit/specfit_selection_ablation_runtime.py",
+            "sha256": "2bfd7b1bedff09a132160b8f11a61e476389a025536a4b2baf6e332f05853597"
+          },
+          {
+            "path": "src/specfit/specfit_slot_cost_experiment.py",
+            "sha256": "784d5949a257f5bacf9a79bf927ef620441db094e48086620cee127954eff458"
+          },
+          {
+            "path": "src/specfit/specfit_slot_cost_runtime.py",
+            "sha256": "db72d422420bcad0f6dc6201632acad4002e3578e655e7c39e7f8494498cf80f"
+          },
+          {
+            "path": "src/specfit/specfit_tree_reward.py",
+            "sha256": "deca3928dd51c98991bc7b5a4241de939451d504047d3f483e5802363cd815a2"
+          },
+          {
+            "path": "src/specfit/specfit_tree_reward_runtime.py",
+            "sha256": "8f55dcf1a685de75d31ec49225115b6c3c88a434ae6321cad5bc9aa0ca1526bc"
+          },
+          {
+            "path": "src/specfit/specfit_tree_space.py",
+            "sha256": "7b6874fcc10453cfe711717120fa7267771c9ee45eab3b5f5d63e3f6fd0b7a79"
+          },
+          {
+            "path": "src/specfit/state.py",
+            "sha256": "c8cccbde9ecd71e6b2cd7e105005245792651b25f4aa1bdb3a604c5ee869de68"
+          },
+          {
+            "path": "src/specfit/state_restore_validation.py",
+            "sha256": "93ed142495186b02d007200fb7fe2ba7deebfa0bdda25f5af4545e31e74f624a"
+          },
+          {
+            "path": "src/specfit/trace.py",
+            "sha256": "08df45cef4866daa49993247675211e3839de2c1e3f09e05235f02f7ce44c2b9"
+          },
+          {
+            "path": "src/specfit/v1_artifact.py",
+            "sha256": "a1594ba03cd25a8bb5099e7964f161520f3dbc86960eb8c9d3dfa7f5ca9ebf28"
+          },
+          {
+            "path": "src/specfit/v1_screen.py",
+            "sha256": "cae38d15f21ef0d8e36c836f91869f499994a6f89d4c541a304ffaf670cfbe6c"
+          }
+        ],
+        "sha256": "de9c90f895a2ae403ec9ceceeaf4a41779b8f2de5d30ef121992b02dcc48c5df"
+      },
+      "models": {
+        "acceptance_exponent": 0.75,
+        "by_mode": {
+          "cold": {
+            "cache": {
+              "expert_ns": 781593.954777753,
+              "missing_ns": 0.0,
+              "size_intercept_ns": [
+                151723723.03200954,
+                158827421.21862602,
+                164033360.6388085,
+                164882953.51508927,
+                169940832.88274014,
+                171869181.773471,
+                173418173.2814604,
+                175832934.69606674
+              ]
+            },
+            "legacy": {
+              "expert_ns": 781593.954777753,
+              "size_intercept_ns": [
+                151723723.03200954,
+                158827421.21862602,
+                164033360.6388085,
+                164882953.51508927,
+                169940832.88274014,
+                171869181.773471,
+                173418173.2814604,
+                175832934.69606674
+              ],
+              "size_mean_ns": [
+                451855801.6666667,
+                629737778.9722222,
+                742065512.0833334,
+                836315582.5555556,
+                929823844.4722222,
+                1010519495.25,
+                1061656281.0,
+                1113485149.1111112
+              ]
+            }
+          },
+          "natural": {
+            "cache": {
+              "expert_ns": 190486.27907933423,
+              "missing_ns": 370235.1906766828,
+              "size_intercept_ns": [
+                206155277.5615652,
+                215736082.14502063,
+                220153908.77284944,
+                222843827.4302463,
+                228187758.6847028,
+                233634061.7826905,
+                235086400.4128648,
+                239169402.3576379
+              ]
+            },
+            "legacy": {
+              "expert_ns": 206037.12107470765,
+              "size_intercept_ns": [
+                245640408.2017567,
+                293125146.1913775,
+                319435793.68074954,
+                343283674.4067664,
+                367086723.84403425,
+                386659706.00350535,
+                401358916.32198775,
+                416367991.4451535
+              ],
+              "size_mean_ns": [
+                324758662.6944444,
+                417262511.6388889,
+                471811691.2222222,
+                520281007.9166667,
+                567400591.5555556,
+                607737536.9166666,
+                635508657.9166666,
+                663543857.6944444
+              ]
+            }
+          }
+        },
+        "guard_margin": 0.02,
+        "training_questions": [
+          401,
+          402,
+          403
+        ]
+      },
+      "protocol": "selection-refinement-v1",
+      "resources": {
+        "max_gpu_reserved_bytes": 19702743040,
+        "max_process_rss_bytes": 86705545216
+      },
+      "scope": "complete",
+      "stage": "calibration",
+      "status": "complete"
+    }
+  }
+}

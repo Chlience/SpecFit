@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "repo_id": "RedHatAI/speculator_benchmarks",
+    "revision": "e383d21cf8c005b0fcba4b8d27a2800a075fed0d",
+    "filename": "math_reasoning.jsonl",
+    "size_bytes": 48051,
+    "sha256": "b73b686f1c585eef7db1306564688da8668ef633ff8e58d55949aac04db8c9b0",
+    "category": "math_reasoning",
+    "expected_count": 80,
+    "question_id_start": 401,
+    "question_id_end": 480
+  }
+}
